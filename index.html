@@ -106,11 +106,11 @@
       <input id="name" autocomplete="name" />
       <label for="phone">شماره موبایل *</label>
       <input id="phone" type="tel" inputmode="tel" autocomplete="tel" />
-      <label for="uid">UID بازی (کالاف دیوتی موبایل) *</label>
-      <input id="uid" dir="ltr" />
-      <label for="email">ایمیل اکانت بازی (اختیاری)</label>
+      <label for="uid">نام اکانت بازی *</label>
+      <input id="uid" />
+      <label for="email">ایمیل اکانت اکتیویژن *</label>
       <input id="email" type="email" dir="ltr" autocomplete="off" />
-      <label for="pw">رمز اکانت بازی (اختیاری — فقط اگر شارژ با لاگین لازم شد)</label>
+      <label for="pw">رمز اکانت اکتیویژن *</label>
       <input id="pw" type="text" dir="ltr" autocomplete="off" />
       <div class="err" id="err"></div>
       <button class="send" type="submit">ارسال سفارش در واتساپ</button>
@@ -167,7 +167,7 @@
     var email = document.getElementById('email').value.trim();
     var pw = document.getElementById('pw').value.trim();
     var err = document.getElementById('err');
-    if (!name || !phone || !uid) { err.textContent = 'نام، شماره موبایل و UID رو کامل وارد کن.'; return; }
+    if (!name || !phone || !uid || !email || !pw) { err.textContent = 'همهٔ فیلدها اجباری‌ان؛ لطفاً کامل پر کن.'; return; }
     var lines = [
       'سفارش جدید از سایت CP Shop',
       '———————————',
@@ -175,10 +175,10 @@
       'مبلغ: ' + current.price.toLocaleString('en-US') + ' تومان',
       'نام: ' + name,
       'موبایل: ' + phone,
-      'UID بازی: ' + uid
+      'نام اکانت: ' + uid,
+      'ایمیل اکتیویژن: ' + email,
+      'رمز اکتیویژن: ' + pw
     ];
-    if (email) lines.push('ایمیل اکانت: ' + email);
-    if (pw) lines.push('رمز اکانت: ' + pw);
     lines.push('———————————');
     lines.push('مبلغ رو کارت‌به‌کارت کردم؛ رسید رو همین‌جا می‌فرستم.');
     var url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
