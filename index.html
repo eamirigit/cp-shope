@@ -23,7 +23,11 @@
   .hero{text-align:center; padding:38px 0 6px}
   .hero h1{font-size:25px; font-weight:800; margin-bottom:10px}
   .hero p{color:var(--muted); font-size:14px; line-height:2}
+  .tabs{display:flex; gap:10px; margin:22px 0 4px}
+  .tabbtn{flex:1; background:var(--panel); color:var(--muted); border:1px solid var(--line); font-family:inherit; font-size:16px; font-weight:800; padding:14px 8px; border-radius:14px; cursor:pointer}
+  .tabbtn.active{background:var(--amber); color:#181200; border-color:var(--amber)}
   h2.sec{font-size:20px; font-weight:800; margin:34px 0 4px; padding-top:18px; border-top:1px solid var(--line)}
+  #tab-offers h2.sec:first-child, #tab-cp h2.sec{margin-top:10px; border-top:0; padding-top:0}
   .secsub{color:var(--muted); font-size:13px; margin-bottom:6px}
   .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:13px; padding:16px 0 6px}
   .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 14px; text-align:center; display:flex; flex-direction:column; align-items:center; transition:border-color .2s}
@@ -80,10 +84,18 @@
     <p>محصولت رو انتخاب کن، مبلغ رو کارت‌به‌کارت کن و سفارش رو از طریق واتساپ ثبت کن؛ سفارش‌ها در سریع‌ترین زمان انجام می‌شن.</p>
   </section>
 
+  <div class="tabs">
+    <button class="tabbtn active" id="btnTabCp" type="button">🎮 سی‌پی کالاف</button>
+    <button class="tabbtn" id="btnTabOffers" type="button">🔥 آفرها و سی‌پی دوبل</button>
+  </div>
+
+  <div id="tab-cp">
   <h2 class="sec">سی‌پی کالاف دیوتی موبایل</h2>
   <div class="secsub">شارژ قانونی و سوپرفست — بدون نیاز به لاگین</div>
   <section class="grid" id="cpGrid"></section>
+  </div>
 
+  <div id="tab-offers" style="display:none">
   <h2 class="sec">آفرهای کالاف دیوتی موبایل</h2>
   <div class="secsub">لیمیت‌ها، بتل‌پس، ساپلای پس و آفرهای ویژه</div>
   <section class="grid" id="offerGrid"></section>
@@ -91,6 +103,7 @@
   <h2 class="sec">سی‌پی دوبل</h2>
   <div class="secsub">پک‌های دوبل (دو برابر) — در حال حاضر ناموجود</div>
   <section class="grid" id="doubleGrid"></section>
+  </div>
 
   <section class="how">
     <h2>روش خرید</h2>
@@ -184,6 +197,15 @@
   OFFERS.forEach(function (p) { g2.appendChild(card(p, false)); });
   var g3 = document.getElementById('doubleGrid');
   DOUBLES.forEach(function (p) { g3.appendChild(card(p, false)); });
+
+  function showTab(which) {
+    document.getElementById('tab-cp').style.display = which === 'cp' ? '' : 'none';
+    document.getElementById('tab-offers').style.display = which === 'offers' ? '' : 'none';
+    document.getElementById('btnTabCp').className = 'tabbtn' + (which === 'cp' ? ' active' : '');
+    document.getElementById('btnTabOffers').className = 'tabbtn' + (which === 'offers' ? ' active' : '');
+  }
+  document.getElementById('btnTabCp').addEventListener('click', function () { showTab('cp'); });
+  document.getElementById('btnTabOffers').addEventListener('click', function () { showTab('offers'); });
 
   document.getElementById('copy').addEventListener('click', function () {
     var t = document.getElementById('cardnum').textContent.replace(/\s/g, '');
