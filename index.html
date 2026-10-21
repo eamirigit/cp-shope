@@ -66,6 +66,8 @@
   input{width:100%; background:#000; border:1px solid #333; border-radius:10px; color:#fff; padding:11px 12px; font-size:14px; font-family:inherit}
   input:focus{outline:none; border-color:var(--amber)}
   .send{width:100%; margin-top:20px; background:var(--wa); color:#06280f; border:0; font-weight:800; font-size:15.5px; padding:13px; border-radius:12px; cursor:pointer}
+  .send.rubika{background:#7c3aed; color:#fff; margin-top:9px}
+  .hint{color:#86efac; font-size:12.5px; margin-top:10px; min-height:16px; line-height:1.9}
   .cancel{width:100%; margin-top:9px; background:transparent; color:var(--muted); border:0; padding:8px; cursor:pointer; font-size:14px}
   .err{color:#f87171; font-size:13px; margin-top:10px; min-height:18px}
 </style>
@@ -110,7 +112,7 @@
     <div class="steps">
       <div class="step"><b>۱.</b> محصول رو انتخاب و روی «خرید» بزن.</div>
       <div class="step"><b>۲.</b> مبلغ رو به شماره کارت زیر کارت‌به‌کارت کن.</div>
-      <div class="step"><b>۳.</b> فرم سفارش رو پر کن و از واتساپ ارسال کن. رسید پرداخت رو هم توی همون چت بفرست.</div>
+      <div class="step"><b>۳.</b> فرم سفارش رو پر کن و با واتساپ یا روبیکا ارسال کن. رسید پرداخت رو هم توی همون چت بفرست. (در روبیکا متن سفارش خودکار کپی می‌شه؛ کافیه پیست کنی و بفرستی.)</div>
     </div>
   </section>
 
@@ -148,6 +150,8 @@
       <input id="pw" type="text" dir="ltr" autocomplete="off" />
       <div class="err" id="err"></div>
       <button class="send" type="submit">ارسال سفارش در واتساپ</button>
+      <button class="send rubika" type="button" id="sendRubika">ارسال سفارش با روبیکا</button>
+      <div class="hint" id="rbHint"></div>
       <button class="cancel" type="button" id="cancel">انصراف</button>
     </form>
   </div>
@@ -222,20 +226,23 @@
     document.getElementById('lblEmail').textContent = p.login ? 'ایمیل اکانت اکتیویژن *' : 'ایمیل اکانت اکتیویژن (اختیاری)';
     document.getElementById('lblPw').textContent = p.login ? 'رمز اکانت اکتیویژن *' : 'رمز اکانت اکتیویژن (اختیاری)';
     document.getElementById('err').textContent = '';
+    document.getElementById('rbHint').textContent = '';
     dlg.showModal();
   }
   document.getElementById('cancel').addEventListener('click', function () { dlg.close(); });
 
-  document.getElementById('form').addEventListener('submit', function (e) {
-    e.preventDefault();
+  var RUBIKA_URL = 'https://rubika.ir/eamiiri';
+
+  function buildOrderText() {
     var name = document.getElementById('name').value.trim();
     var phone = document.getElementById('phone').value.trim();
     var acc = document.getElementById('acc').value.trim();
     var email = document.getElementById('email').value.trim();
     var pw = document.getElementById('pw').value.trim();
     var err = document.getElementById('err');
-    if (!name || !phone || !acc) { err.textContent = 'نام، شماره موبایل و نام اکانت رو کامل وارد کن.'; return; }
-    if (current.login && (!email || !pw)) { err.textContent = 'این محصول نیاز به لاگین داره؛ ایمیل و رمز اکتیویژن اجباری‌ان.'; return; }
+    if (!name || !phone || !acc) { err.textContent = 'نام، شماره موبایل و نام اکانت رو کامل وارد کن.'; return null; }
+    if (current.login && (!email || !pw)) { err.textContent = 'این محصول نیاز به لاگین داره؛ ایمیل و رمز اکتیویژن اجباری‌ان.'; return null; }
+    err.textContent = '';
     var lines = [
       'سفارش جدید از سایت CP Shop',
       '———————————',
@@ -249,9 +256,35 @@
     if (pw) lines.push('رمز اکتیویژن: ' + pw);
     lines.push('———————————');
     lines.push('مبلغ رو کارت‌به‌کارت کردم؛ رسید رو همین‌جا می‌فرستم.');
-    var url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+    return lines.join('\n');
+  }
+
+  document.getElementById('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var text = buildOrderText();
+    if (!text) return;
+    var url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text);
     window.open(url, '_blank');
     dlg.close();
+  });
+
+  document.getElementById('sendRubika').addEventListener('click', function () {
+    var text = buildOrderText();
+    if (!text) return;
+    var hint = document.getElementById('rbHint');
+    function go() {
+      hint.textContent = 'متن سفارش کپی شد ✓ حالا در روبیکا پیست کن و بفرست.';
+      window.open(RUBIKA_URL, '_blank');
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(go, go);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e2) {}
+      document.body.removeChild(ta);
+      go();
+    }
   });
 </script>
 </body>
