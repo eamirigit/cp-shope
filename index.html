@@ -3,35 +3,46 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CP Shop — فروشگاه سی‌پی کالاف دیوتی موبایل</title>
+<title>CP Shop — فروشگاه سی‌پی و آفر کالاف دیوتی موبایل</title>
 <style>
   :root{
     --bg:#09090b; --panel:#101013; --card:#17171b; --line:#26262c;
-    --text:#fafafa; --muted:#a1a1aa; --amber:#fbbf24; --amber2:#f59e0b;
-    --green:#22c55e; --wa:#25d366;
+    --text:#fafafa; --muted:#a1a1aa; --amber:#fbbf24; --amber2:#f59e0b; --wa:#25d366;
+    --chip:#1e293b; --chipT:#7dd3fc; --chipG:#14532d; --chipGT:#86efac;
   }
   *{box-sizing:border-box; margin:0; padding:0}
   body{background:var(--bg); color:var(--text); font-family:Tahoma,system-ui,sans-serif; min-height:100vh}
   a{color:inherit}
   header{border-bottom:1px solid var(--line); background:rgba(9,9,11,.9); position:sticky; top:0; z-index:10; backdrop-filter:blur(6px)}
-  .wrap{max-width:1024px; margin:0 auto; padding:0 16px}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 16px}
   .bar{display:flex; align-items:center; justify-content:space-between; height:60px}
   .logo{font-weight:800; font-size:20px}
   .logo span{color:var(--amber)}
   .support{font-size:13px; color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:7px 12px; border-radius:999px}
   .support:hover{color:#fff; border-color:var(--wa)}
-  .hero{text-align:center; padding:40px 0 8px}
-  .hero h1{font-size:26px; font-weight:800; margin-bottom:10px}
+  .hero{text-align:center; padding:38px 0 6px}
+  .hero h1{font-size:25px; font-weight:800; margin-bottom:10px}
   .hero p{color:var(--muted); font-size:14px; line-height:2}
-  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; padding:28px 0 8px}
-  .card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px 14px; text-align:center; display:flex; flex-direction:column; align-items:center; transition:border-color .2s}
+  h2.sec{font-size:20px; font-weight:800; margin:34px 0 4px; padding-top:18px; border-top:1px solid var(--line)}
+  .secsub{color:var(--muted); font-size:13px; margin-bottom:6px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:13px; padding:16px 0 6px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 14px; text-align:center; display:flex; flex-direction:column; align-items:center; transition:border-color .2s}
   .card:hover{border-color:var(--amber)}
-  .cp{font-size:34px; font-weight:800; color:var(--amber); line-height:1}
-  .cplabel{font-size:13px; color:var(--muted); margin:6px 0 14px}
-  .price{font-weight:700; margin-bottom:16px}
-  .buy{background:var(--amber); color:#181200; border:0; font-weight:800; font-size:15px; padding:11px 26px; border-radius:12px; cursor:pointer; width:100%}
+  .card.out{opacity:.55}
+  .cpn{font-size:31px; font-weight:800; color:var(--amber); line-height:1.1}
+  .ttl{font-size:15.5px; font-weight:700; line-height:1.9; min-height:56px; display:flex; align-items:center}
+  .cplabel{font-size:12.5px; color:var(--muted); margin:4px 0 8px}
+  .badges{display:flex; flex-wrap:wrap; gap:5px; justify-content:center; margin:6px 0 10px; min-height:24px}
+  .chip{font-size:11px; padding:3px 9px; border-radius:999px; background:var(--chip); color:var(--chipT); border:1px solid #334155}
+  .chip.g{background:var(--chipG); color:var(--chipGT); border-color:#166534}
+  .chip.d{background:#27272a; color:#d4d4d8; border-color:#3f3f46}
+  .chip.o{background:#450a0a; color:#fca5a5; border-color:#7f1d1d}
+  .price{font-weight:700; margin-bottom:12px; font-size:15px}
+  .note{font-size:11.5px; color:var(--muted); line-height:1.9; margin-bottom:10px}
+  .buy{background:var(--amber); color:#181200; border:0; font-weight:800; font-size:15px; padding:11px 20px; border-radius:12px; cursor:pointer; width:100%; margin-top:auto}
   .buy:hover{background:var(--amber2)}
-  .how{padding:28px 0 6px}
+  .buy:disabled{background:#27272a; color:#71717a; cursor:default}
+  .how{padding:26px 0 6px}
   .how h2, .paybox h2{font-size:18px; font-weight:800; margin-bottom:12px}
   .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px}
   .step{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px; font-size:13.5px; color:var(--muted); line-height:2}
@@ -46,7 +57,7 @@
   dialog::backdrop{background:rgba(0,0,0,.7)}
   .dlg{padding:22px}
   .dlg h3{font-size:17px; font-weight:800; margin-bottom:4px}
-  .dlg .sel{color:var(--amber); font-size:14px; margin-bottom:16px}
+  .dlg .sel{color:var(--amber); font-size:14px; margin-bottom:8px; line-height:1.9}
   label{display:block; font-size:13px; color:var(--muted); margin:12px 0 6px}
   input{width:100%; background:#000; border:1px solid #333; border-radius:10px; color:#fff; padding:11px 12px; font-size:14px; font-family:inherit}
   input:focus{outline:none; border-color:var(--amber)}
@@ -65,16 +76,26 @@
 
 <main class="wrap">
   <section class="hero">
-    <h1>خرید سی‌پی (CP) کالاف دیوتی موبایل</h1>
-    <p>بستهٔ موردنظرت رو انتخاب کن، مبلغ رو کارت‌به‌کارت کن و سفارشت رو از طریق واتساپ ثبت کن؛ سفارش در اسرع وقت انجام می‌شه.</p>
+    <h1>خرید سی‌پی و آفر کالاف دیوتی موبایل</h1>
+    <p>محصولت رو انتخاب کن، مبلغ رو کارت‌به‌کارت کن و سفارش رو از طریق واتساپ ثبت کن؛ سفارش‌ها در سریع‌ترین زمان انجام می‌شن.</p>
   </section>
 
-  <section class="grid" id="grid"></section>
+  <h2 class="sec">سی‌پی کالاف دیوتی موبایل</h2>
+  <div class="secsub">شارژ قانونی و سوپرفست — بدون نیاز به لاگین</div>
+  <section class="grid" id="cpGrid"></section>
+
+  <h2 class="sec">آفرهای کالاف دیوتی موبایل</h2>
+  <div class="secsub">لیمیت‌ها، بتل‌پس، ساپلای پس و آفرهای ویژه</div>
+  <section class="grid" id="offerGrid"></section>
+
+  <h2 class="sec">سی‌پی دوبل</h2>
+  <div class="secsub">پک‌های دوبل (دو برابر) — در حال حاضر ناموجود</div>
+  <section class="grid" id="doubleGrid"></section>
 
   <section class="how">
     <h2>روش خرید</h2>
     <div class="steps">
-      <div class="step"><b>۱.</b> بستهٔ CP رو انتخاب و روی «خرید» بزن.</div>
+      <div class="step"><b>۱.</b> محصول رو انتخاب و روی «خرید» بزن.</div>
       <div class="step"><b>۲.</b> مبلغ رو به شماره کارت زیر کارت‌به‌کارت کن.</div>
       <div class="step"><b>۳.</b> فرم سفارش رو پر کن و از واتساپ ارسال کن. رسید پرداخت رو هم توی همون چت بفرست.</div>
     </div>
@@ -93,7 +114,7 @@
 <footer>
   <div class="wrap">
     پشتیبانی: <a href="https://wa.me/989300820929" target="_blank" rel="noopener">واتساپ</a> — تماس: <a href="tel:+989300820928" dir="ltr">۰۹۳۰ ۰۸۲ ۰۹۲۸</a><br/>
-    CP Shop — فروش سی‌پی کالاف دیوتی موبایل
+    CP Shop — فروش سی‌پی و آفر کالاف دیوتی موبایل
   </div>
 </footer>
 
@@ -106,11 +127,11 @@
       <input id="name" autocomplete="name" />
       <label for="phone">شماره موبایل *</label>
       <input id="phone" type="tel" inputmode="tel" autocomplete="tel" />
-      <label for="uid">نام اکانت بازی *</label>
-      <input id="uid" />
-      <label for="email">ایمیل اکانت اکتیویژن *</label>
+      <label for="acc">نام اکانت بازی *</label>
+      <input id="acc" />
+      <label for="email" id="lblEmail">ایمیل اکانت اکتیویژن</label>
       <input id="email" type="email" dir="ltr" autocomplete="off" />
-      <label for="pw">رمز اکانت اکتیویژن *</label>
+      <label for="pw" id="lblPw">رمز اکانت اکتیویژن</label>
       <input id="pw" type="text" dir="ltr" autocomplete="off" />
       <div class="err" id="err"></div>
       <button class="send" type="submit">ارسال سفارش در واتساپ</button>
@@ -120,27 +141,49 @@
 </dialog>
 
 <script>
-  var PRODUCTS = [
-    { id: 'cp-80',   cp: 80,   price: 60000 },
-    { id: 'cp-420',  cp: 420,  price: 280000 },
-    { id: 'cp-880',  cp: 880,  price: 560000 },
-    { id: 'cp-2400', cp: 2400, price: 1500000 },
-    { id: 'cp-5000', cp: 5000, price: 3000000 }
-  ];
+  var CP = [{"name": "80 سی‌پی", "amount": 80, "price": 300000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "160 سی‌پی", "amount": 160, "price": 500000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "240 سی‌پی", "amount": 240, "price": 700000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "320 سی‌پی", "amount": 320, "price": 900000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "400 سی‌پی", "amount": 400, "price": 1099000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "420 سی‌پی", "amount": 420, "price": 1299000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "480 سی‌پی", "amount": 480, "price": 1299000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "500 سی‌پی", "amount": 500, "price": 1499000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "560 سی‌پی", "amount": 560, "price": 1499000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "580 سی‌پی", "amount": 580, "price": 1699000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "640 سی‌پی", "amount": 640, "price": 1699000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "660 سی‌پی", "amount": 660, "price": 1899000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "720 سی‌پی", "amount": 720, "price": 1899000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "740 سی‌پی", "amount": 740, "price": 2099000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "800 سی‌پی", "amount": 800, "price": 2099000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "880 سی‌پی", "amount": 880, "price": 2299000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "960 سی‌پی", "amount": 960, "price": 2499000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "1040 سی‌پی", "amount": 1040, "price": 2699000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "1120 سی‌پی", "amount": 1120, "price": 2899000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "1200 سی‌پی", "amount": 1200, "price": 3099000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "1300 سی‌پی", "amount": 1300, "price": 3599000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "1600 سی‌پی", "amount": 1600, "price": 4099000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "1760 سی‌پی", "amount": 1760, "price": 4499000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "2000 سی‌پی", "amount": 2000, "price": 5099000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "2400 سی‌پی", "amount": 2400, "price": 4599000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "4800 سی‌پی", "amount": 4800, "price": 9099000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "5000 سی‌پی", "amount": 5000, "price": 9799000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "5880 سی‌پی", "amount": 5880, "price": 11899000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "7200 سی‌پی", "amount": 7200, "price": 13099000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "7400 سی‌پی", "amount": 7400, "price": 13999000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "9600 سی‌پی", "amount": 9600, "price": 17199000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "10800 سی‌پی", "amount": 10800, "price": 20599000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "12000 سی‌پی", "amount": 12000, "price": 22099000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "۳۷۰۰ سی‌پی", "amount": 3700, "price": null, "tags": ["سوپرفست قانونی"], "delivery": "—", "login": false, "stock": false, "note": "روش گوگل‌پلی: ۷٬۳۹۹٬۰۰۰ تومان — روش آیتونز: ۱۰٬۰۹۰٬۰۰۰ تومان"}];
+  var OFFERS = [{"name": "خرید لیمیت ۱۰۰ سی‌پی + کارت طلایی", "price": 300000, "tags": ["سوپرفست قانونی", "بدون نیاز به لاگین"], "delivery": "۱۰ دقیقه", "login": false, "stock": true, "note": "قبل از سفارش مطمئن شو این آفر توی بخش فروشگاه اکانت خودت فعاله؛ اگه فعال نباشه، خریدش ممکن نیست."}, {"name": "لیمیت ۱۶۰ سی‌پی + پروفایل", "price": 300000, "tags": ["سوپرفست قانونی"], "delivery": "۱۰ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "آفر ۲ دلاری Zane – Panzer + AK117 Black Lime", "price": 485000, "tags": ["آفر ویژه"], "delivery": "۲ الی ۳۰ دقیقه", "login": false, "stock": true}, {"name": "آفر ۱۰۰۰ کوپن استریت فایتر", "price": 669000, "tags": ["سوپرفست قانونی"], "delivery": "۱۰ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "آفر دنس + ۱۰ استرانگ باکس", "price": 669000, "tags": ["ارزان-فوری"], "delivery": "۲ الی ۳۰ دقیقه", "login": false, "stock": true}, {"name": "ساپلای پس هفتگی (ریجن هند و ایران)", "price": 299000, "tags": ["نیاز به پسورد"], "delivery": "۲ الی ۳۰ دقیقه", "login": true, "stock": true}, {"name": "آفر ولکام‌بک – ۸۰ سی‌پی + ۲ کارت طلایی", "price": 299000, "tags": ["نیاز به پسورد"], "delivery": "۲ الی ۳۰ دقیقه", "login": true, "stock": true}, {"name": "آفر ولکام‌بک – ۱۶۰ سی‌پی", "price": 299000, "tags": ["نیاز به پسورد"], "delivery": "۲ الی ۳۰ دقیقه", "login": true, "stock": true}, {"name": "آفر New Soldier 1 – ۱۲۰ سی‌پی", "price": 299000, "tags": ["نیاز به پسورد"], "delivery": "۲ الی ۳۰ دقیقه", "login": true, "stock": true}, {"name": "آفر New Soldier 2 – ۸۰ سی‌پی + کوپن طلایی و صورتی", "price": 299000, "tags": ["ارزان-فوری"], "delivery": "۲ الی ۳۰ دقیقه", "login": false, "stock": true}, {"name": "آفر New Soldier 3 – ۸۰ سی‌پی + کارت طلایی", "price": 299000, "tags": ["نیاز به پسورد"], "delivery": "۲ الی ۳۰ دقیقه", "login": true, "stock": true}, {"name": "آفر گوست پلاسما ۱ دلاری", "price": 309000, "tags": ["آفر ویژه"], "delivery": "۲ الی ۳۰ دقیقه", "login": false, "stock": true}, {"name": "آفر گوست پلاسما ۲ دلاری", "price": 439000, "tags": ["آفر ویژه"], "delivery": "۲ الی ۳۰ دقیقه", "login": false, "stock": true}, {"name": "ساپلای پس هفتگی (ریجن اروپا)", "price": 459000, "tags": ["نیاز به پسورد"], "delivery": "۲ الی ۳۰ دقیقه", "login": true, "stock": true}, {"name": "آفر ولکام‌بک – ۱۶۰ سی‌پی + ۲ کارت طلایی", "price": 459000, "tags": ["ارزان-فوری"], "delivery": "۲ الی ۳۰ دقیقه", "login": false, "stock": true}, {"name": "آفر ولکام‌بک – ۳۶۰ سی‌پی", "price": 459000, "tags": ["نیاز به پسورد"], "delivery": "۲ الی ۳۰ دقیقه", "login": true, "stock": true}, {"name": "پک گوست (۴۰۰ سی‌پی + اسکین گوست)", "price": 459000, "tags": ["ارزان-فوری"], "delivery": "۵ الی ۳۰ دقیقه", "login": false, "stock": true}, {"name": "آفر ویژه DMZ لو اسپند", "price": 530000, "tags": ["سوپرفست قانونی"], "delivery": "۱۰ دقیقه", "login": false, "stock": true}, {"name": "آفر گوست پلاسما ۳ دلاری", "price": 599000, "tags": ["آفر ویژه"], "delivery": "۲ الی ۳۰ دقیقه", "login": false, "stock": true}, {"name": "پک پرایس (۵۶۰ سی‌پی + اسکین کاپیتان پرایس)", "price": 639000, "tags": ["نیاز به پسورد"], "delivery": "۲ الی ۳۰ دقیقه", "login": true, "stock": true}, {"name": "بتل‌پس ریجن ایران و هند", "price": 679000, "tags": ["سوپرفست قانونی"], "delivery": "۱۰ الی ۲۰ دقیقه", "login": false, "stock": true}, {"name": "کارت Rebate Upgrade (تا ۲۵٪ تخفیف + ۴۹۰۰ CP برگشتی)", "price": 819000, "tags": ["ارزان-فوری"], "delivery": "۲ الی ۳۰ دقیقه", "login": false, "stock": true}, {"name": "ساپلای پس ماهانه (ریجن هند)", "price": 819000, "tags": ["ارزان-فوری"], "delivery": "۲ الی ۳۰ دقیقه", "login": false, "stock": true}, {"name": "آفر ویژه DMZ لو اسپند (ریجن اروپا)", "price": 850000, "tags": ["سوپرفست قانونی"], "delivery": "۱۰ دقیقه", "login": false, "stock": true}, {"name": "ساپلای پس ماهانه (اروپا) – ۷ دلاری", "price": 1399000, "tags": ["ارزان-فوری"], "delivery": "۲ الی ۳۰ دقیقه", "login": false, "stock": true}, {"name": "آفر New Soldier 4 – ۵۰۰ سی‌پی", "price": 1399000, "tags": ["نیاز به پسورد"], "delivery": "۲ الی ۳۰ دقیقه", "login": true, "stock": true}, {"name": "ساپلای پس ماهانه (اروپا) – ۱۰ دلاری", "price": 2499000, "tags": ["نیاز به پسورد"], "delivery": "۲ الی ۳۰ دقیقه", "login": true, "stock": true}, {"name": "لیمیت ۱۶۰ سی‌پی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر بونوس – مرحله اول", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر بونوس – مرحله دوم", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر بونوس – مرحله سوم", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر بونوس – مرحله چهارم", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر صندوق ۱۶۰ سی‌پی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر صندوق ۶۰۰ سی‌پی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر صندوق ۱۲۰۰ سی‌پی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر صندوق ۲۲۴۰ سی‌پی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر صندوق ۳۶۰۰ سی‌پی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر صندوق ۵۴۰۰ سی‌پی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "لیمیت ۱۰۰ سی‌پی + دینگو لجند", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "لیمیت ۱۰۰ سی‌پی + R9 لجند", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "لیمیت ۱۰۰ سی‌پی + استرانگ باکس Mace", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "لیمیت ۱۰۰ سی‌پی + استرانگ باکس", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "لیمیت ۱۰۰ سی‌پی + گان لجند", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "کارت متیک ۱۰ عددی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "کارت متیک ۳۰ عددی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "کارت متیک ۴۰ عددی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "کارت متیک ۸۰ عددی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "کارت متیک ۱۰۰ عددی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "کارت متیک ۱۴۰ عددی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر ۱۰۰ میتیک کوین", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر ۱۵۰ میتیک کوین", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر Big Deal (۲۶۰۰ CP + Machine Pistol)", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "باندل ۸۰ سی‌پی – ۵ دلاری", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "باندل ۸۰ سی‌پی – ۱۱ دلاری", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "باندل ۸۰ سی‌پی – ۲۵ دلاری", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "بسته گرند فورس (هند و ایران)", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "بسته گرند فورس (اروپا)", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر Outrider Going Dark", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر لیمیت ۱ دلاری (۲ کارت طلایی)", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "لیمیت ۸۰ سی‌پی + ۲ کارت طلایی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر لو اسپند ۲۴۰ سی‌پی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "لیمیت ۱۶۰ سی‌پی + ۲ کارت طلایی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "آفر ویژه ۲۴۰ سی‌پی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "۸۰ سی‌پی رایگان", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "فول پک HS تانک", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}, {"name": "سی‌پی قانونی اقتصادی", "price": null, "tags": [], "delivery": "—", "login": false, "stock": false}];
+  var DOUBLES = [{"name": "۸۰+۸۰ سی‌پی دوبل", "price": null, "tags": ["سوپرفست قانونی"], "delivery": "—", "login": false, "stock": false}, {"name": "۴۰۰ سی‌پی دوبل ارزان", "price": null, "tags": ["ارزان"], "delivery": "—", "login": false, "stock": false}, {"name": "۴۰۰+۴۰۰ سی‌پی دوبل", "price": null, "tags": ["سوپرفست قانونی"], "delivery": "—", "login": false, "stock": false}, {"name": "۸۰۰+۸۰۰ سی‌پی دوبل", "price": null, "tags": ["اقتصادی"], "delivery": "—", "login": false, "stock": false}, {"name": "۸۰۰ سی‌پی دوبل ارزان + گارانتی", "price": null, "tags": ["ارزان", "گارانتی"], "delivery": "—", "login": false, "stock": false}, {"name": "۸۰۰+۸۰۰ سی‌پی دوبل", "price": null, "tags": ["سوپرفست قانونی"], "delivery": "—", "login": false, "stock": false}, {"name": "۲۰۰۰+۲۰۰۰ سی‌پی دوبل", "price": null, "tags": ["اقتصادی"], "delivery": "—", "login": false, "stock": false}, {"name": "۲۰۰۰ سی‌پی دوبل ارزان + گارانتی", "price": null, "tags": ["ارزان", "گارانتی"], "delivery": "—", "login": false, "stock": false}, {"name": "۲۰۰۰+۲۰۰۰ سی‌پی دوبل", "price": null, "tags": ["سوپرفست قانونی"], "delivery": "—", "login": false, "stock": false}, {"name": "۴۰۰۰ سی‌پی دوبل ارزان + گارانتی", "price": null, "tags": ["ارزان", "گارانتی"], "delivery": "—", "login": false, "stock": false}, {"name": "۴۰۰۰+۴۰۰۰ سی‌پی دوبل", "price": null, "tags": ["سوپرفست قانونی"], "delivery": "—", "login": false, "stock": false}, {"name": "۸۰۰۰ سی‌پی دوبل ارزان + گارانتی", "price": null, "tags": ["ارزان", "گارانتی"], "delivery": "—", "login": false, "stock": false}, {"name": "۸۰۰۰+۸۰۰۰ سی‌پی دوبل", "price": null, "tags": ["سوپرفست قانونی"], "delivery": "—", "login": false, "stock": false}];
   var WA_NUMBER = '989300820929';
   var fa = function (n) { return Number(n).toLocaleString('fa-IR'); };
 
-  var grid = document.getElementById('grid');
-  PRODUCTS.forEach(function (p) {
-    var card = document.createElement('div'); card.className = 'card';
-    var cp = document.createElement('div'); cp.className = 'cp'; cp.textContent = fa(p.cp);
-    var lb = document.createElement('div'); lb.className = 'cplabel'; lb.textContent = 'سی‌پی (CP)';
-    var pr = document.createElement('div'); pr.className = 'price'; pr.textContent = fa(p.price) + ' تومان';
-    var b = document.createElement('button'); b.className = 'buy'; b.textContent = 'خرید';
-    b.addEventListener('click', function () { openOrder(p); });
-    card.appendChild(cp); card.appendChild(lb); card.appendChild(pr); card.appendChild(b);
-    grid.appendChild(card);
-  });
+  function chip(txt, cls) {
+    var s = document.createElement('span'); s.className = 'chip' + (cls ? ' ' + cls : ''); s.textContent = txt; return s;
+  }
+  function card(p, isCp) {
+    var c = document.createElement('div'); c.className = 'card' + (p.stock ? '' : ' out');
+    if (isCp && p.amount) {
+      var n = document.createElement('div'); n.className = 'cpn'; n.textContent = fa(p.amount);
+      var l = document.createElement('div'); l.className = 'cplabel'; l.textContent = 'سی‌پی (CP)';
+      c.appendChild(n); c.appendChild(l);
+    } else {
+      var t = document.createElement('div'); t.className = 'ttl'; t.textContent = p.name;
+      c.appendChild(t);
+    }
+    var b = document.createElement('div'); b.className = 'badges';
+    p.tags.forEach(function (tg) { b.appendChild(chip(tg, tg.indexOf('پسورد') >= 0 ? 'g' : '')); });
+    if (p.stock && p.delivery && p.delivery !== '—') b.appendChild(chip('تحویل: ' + p.delivery, 'd'));
+    if (!p.stock) b.appendChild(chip('ناموجود', 'o'));
+    c.appendChild(b);
+    if (p.note) { var nt = document.createElement('div'); nt.className = 'note'; nt.textContent = p.note; c.appendChild(nt); }
+    if (p.stock) {
+      var pr = document.createElement('div'); pr.className = 'price'; pr.textContent = fa(p.price) + ' تومان';
+      c.appendChild(pr);
+      var btn = document.createElement('button'); btn.className = 'buy'; btn.textContent = 'خرید';
+      btn.addEventListener('click', function () { openOrder(p); });
+      c.appendChild(btn);
+    } else {
+      var btn2 = document.createElement('button'); btn2.className = 'buy'; btn2.textContent = 'ناموجود'; btn2.disabled = true;
+      c.appendChild(btn2);
+    }
+    return c;
+  }
+  var g1 = document.getElementById('cpGrid');
+  CP.forEach(function (p) { g1.appendChild(card(p, true)); });
+  var g2 = document.getElementById('offerGrid');
+  OFFERS.forEach(function (p) { g2.appendChild(card(p, false)); });
+  var g3 = document.getElementById('doubleGrid');
+  DOUBLES.forEach(function (p) { g3.appendChild(card(p, false)); });
 
   document.getElementById('copy').addEventListener('click', function () {
     var t = document.getElementById('cardnum').textContent.replace(/\s/g, '');
@@ -153,7 +196,9 @@
   var current = null;
   function openOrder(p) {
     current = p;
-    document.getElementById('sel').textContent = 'بستهٔ انتخابی: ' + fa(p.cp) + ' CP — ' + fa(p.price) + ' تومان';
+    document.getElementById('sel').textContent = 'محصول انتخابی: ' + p.name + ' — ' + fa(p.price) + ' تومان';
+    document.getElementById('lblEmail').textContent = p.login ? 'ایمیل اکانت اکتیویژن *' : 'ایمیل اکانت اکتیویژن (اختیاری)';
+    document.getElementById('lblPw').textContent = p.login ? 'رمز اکانت اکتیویژن *' : 'رمز اکانت اکتیویژن (اختیاری)';
     document.getElementById('err').textContent = '';
     dlg.showModal();
   }
@@ -163,22 +208,23 @@
     e.preventDefault();
     var name = document.getElementById('name').value.trim();
     var phone = document.getElementById('phone').value.trim();
-    var uid = document.getElementById('uid').value.trim();
+    var acc = document.getElementById('acc').value.trim();
     var email = document.getElementById('email').value.trim();
     var pw = document.getElementById('pw').value.trim();
     var err = document.getElementById('err');
-    if (!name || !phone || !uid || !email || !pw) { err.textContent = 'همهٔ فیلدها اجباری‌ان؛ لطفاً کامل پر کن.'; return; }
+    if (!name || !phone || !acc) { err.textContent = 'نام، شماره موبایل و نام اکانت رو کامل وارد کن.'; return; }
+    if (current.login && (!email || !pw)) { err.textContent = 'این محصول نیاز به لاگین داره؛ ایمیل و رمز اکتیویژن اجباری‌ان.'; return; }
     var lines = [
       'سفارش جدید از سایت CP Shop',
       '———————————',
-      'بسته: ' + current.cp + ' CP',
+      'محصول: ' + current.name,
       'مبلغ: ' + current.price.toLocaleString('en-US') + ' تومان',
       'نام: ' + name,
       'موبایل: ' + phone,
-      'نام اکانت: ' + uid,
-      'ایمیل اکتیویژن: ' + email,
-      'رمز اکتیویژن: ' + pw
+      'نام اکانت: ' + acc
     ];
+    if (email) lines.push('ایمیل اکتیویژن: ' + email);
+    if (pw) lines.push('رمز اکتیویژن: ' + pw);
     lines.push('———————————');
     lines.push('مبلغ رو کارت‌به‌کارت کردم؛ رسید رو همین‌جا می‌فرستم.');
     var url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
