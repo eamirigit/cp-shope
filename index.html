@@ -126,6 +126,39 @@
   .orow{display:flex; justify-content:space-between; gap:10px; background:var(--card2); border:1px solid var(--line); border-radius:12px; padding:11px 13px; margin-bottom:8px; font-size:12.5px; line-height:1.9}
   .orow .otot{color:var(--gold); font-weight:800; white-space:nowrap}
   .osec{font-size:15px; font-weight:800; margin:18px 0 10px}
+
+  .support-fab{position:fixed; inset-inline-end:16px; bottom:calc(96px + env(safe-area-inset-bottom)); z-index:45; display:flex; align-items:center; gap:8px; border:0; border-radius:999px; padding:12px 16px; background:linear-gradient(180deg,var(--gold),var(--gold2)); color:var(--goldD); font-family:inherit; font-weight:800; font-size:14px; box-shadow:0 12px 30px rgba(0,0,0,.45),0 6px 18px rgba(245,158,11,.28); cursor:pointer}
+  .support-fab:hover{filter:brightness(1.07)}
+  .support-fab .sf-ic{font-size:20px; line-height:1}
+  .support-panel{position:fixed; inset-inline-end:12px; bottom:calc(92px + env(safe-area-inset-bottom)); z-index:46; width:min(94vw,392px); height:min(590px,calc(100dvh - 188px)); min-height:380px; display:none; flex-direction:column; overflow:hidden; background:linear-gradient(180deg,#0d1729,#08101e); border:1px solid rgba(245,158,11,.38); border-radius:20px; box-shadow:0 24px 60px rgba(0,0,0,.58)}
+  .support-panel.open{display:flex}
+  .sp-head{display:flex; align-items:center; gap:11px; padding:14px 15px; border-bottom:1px solid var(--line); background:rgba(245,158,11,.06)}
+  .sp-avatar{width:42px; height:42px; flex:0 0 auto; border-radius:50%; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,var(--gold),var(--gold2)); font-size:21px; box-shadow:0 5px 16px rgba(245,158,11,.3)}
+  .sp-title{font-weight:800; font-size:15px}
+  .sp-sub{font-size:11.5px; color:#86efac; margin-top:3px}
+  .sp-close{margin-inline-start:auto; width:34px; height:34px; border-radius:50%; border:1px solid var(--line); background:#132039; color:#fff; font-family:inherit; font-size:15px; cursor:pointer}
+  .sp-messages{flex:1; overflow-y:auto; padding:14px 12px; display:flex; flex-direction:column; gap:9px; scroll-behavior:smooth}
+  .msg{max-width:89%; padding:10px 12px; border-radius:15px; font-size:13.5px; line-height:2; white-space:pre-line; overflow-wrap:anywhere}
+  .msg.bot{align-self:flex-start; background:#16283f; border:1px solid #274b73; border-start-start-radius:5px}
+  .msg.user{align-self:flex-end; background:linear-gradient(180deg,var(--gold),var(--gold2)); color:var(--goldD); border-start-end-radius:5px; font-weight:700}
+  .msg.typing{color:var(--muted)}
+  .msg .mtitle{font-weight:800; color:#fff; line-height:1.9}
+  .msg .mmeta{color:#cbd7ea; font-size:12.5px; line-height:1.95}
+  .msg .mprice{color:var(--gold); font-weight:800}
+  .sp-actions{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px}
+  .sp-action{border:1px solid rgba(245,158,11,.45); background:rgba(245,158,11,.1); color:#fde68a; border-radius:999px; padding:6px 10px; font-family:inherit; font-size:12px; font-weight:700; cursor:pointer; text-decoration:none; line-height:1.7}
+  .sp-action.primary{background:linear-gradient(180deg,var(--gold),var(--gold2)); color:var(--goldD); border:0}
+  .sp-quick{display:flex; gap:7px; overflow-x:auto; padding:9px 10px; border-top:1px solid var(--line); scrollbar-width:none; background:rgba(255,255,255,.02)}
+  .sp-quick::-webkit-scrollbar{display:none}
+  .quick-chip{flex:0 0 auto; border:1px solid var(--line); background:#132039; color:#dbe6f5; border-radius:999px; padding:7px 11px; font-family:inherit; font-size:12px; font-weight:700; cursor:pointer}
+  .quick-chip:hover{border-color:var(--gold2); color:#fff}
+  .sp-form{display:flex; gap:8px; padding:10px; border-top:1px solid var(--line); background:#0a1322}
+  .sp-form input{flex:1; min-width:0; border-radius:999px; padding:11px 14px}
+  .sp-send{width:44px; height:44px; flex:0 0 auto; border-radius:50%; border:0; background:linear-gradient(180deg,var(--gold),var(--gold2)); color:var(--goldD); font-family:inherit; font-size:18px; font-weight:800; cursor:pointer; transform:scaleX(-1)}
+  @media (max-width:480px){
+    .support-fab{bottom:calc(92px + env(safe-area-inset-bottom)); padding:11px 14px}
+    .support-panel{inset-inline:8px; width:auto; bottom:calc(88px + env(safe-area-inset-bottom)); height:min(600px,calc(100dvh - 176px))}
+  }
 </style>
 </head>
 <body>
@@ -215,6 +248,34 @@
   <button type="button" class="bnavbtn" id="navProfile"><span class="bic">👤</span><span>پروفایل</span></button>
 </nav>
 
+
+<button id="supportFab" class="support-fab" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="supportPanel">
+  <span class="sf-ic" aria-hidden="true">💬</span><span>پشتیبانی هوشمند</span>
+</button>
+
+<section id="supportPanel" class="support-panel" aria-label="دستیار پشتیبانی CP REBORN" aria-hidden="true">
+  <div class="sp-head">
+    <div class="sp-avatar" aria-hidden="true">🤖</div>
+    <div>
+      <div class="sp-title">دستیار هوشمند CP REBORN</div>
+      <div class="sp-sub">● پاسخ‌گویی بر اساس اطلاعات فعلی فروشگاه</div>
+    </div>
+    <button id="supportClose" class="sp-close" type="button" aria-label="بستن پشتیبانی">✕</button>
+  </div>
+  <div id="supportMessages" class="sp-messages" aria-live="polite"></div>
+  <div class="sp-quick" id="supportQuick">
+    <button class="quick-chip" type="button" data-q="روش خرید چطوره؟">روش خرید</button>
+    <button class="quick-chip" type="button" data-q="زمان تحویل چقدره؟">زمان تحویل</button>
+    <button class="quick-chip" type="button" data-q="پرداخت و ارسال رسید چطوره؟">پرداخت و رسید</button>
+    <button class="quick-chip" type="button" data-q="پیدا کردن محصول">پیدا کردن محصول</button>
+    <button class="quick-chip" type="button" data-q="ربات تلگرام">ربات تلگرام</button>
+    <button class="quick-chip" type="button" data-q="پشتیبانی انسانی">پشتیبانی انسانی</button>
+  </div>
+  <form id="supportForm" class="sp-form">
+    <input id="supportInput" type="text" autocomplete="off" placeholder="سؤالت رو بنویس؛ مثلاً: قیمت ۸۰ سی‌پی" />
+    <button class="sp-send" type="submit" aria-label="ارسال سؤال">➤</button>
+  </form>
+</section>
 
 <dialog id="dlg">
   <div class="dlg">
@@ -624,6 +685,370 @@
       go();
     }
   });
+
+  (function initSupportAssistant() {
+    var fab = document.getElementById('supportFab');
+    var panel = document.getElementById('supportPanel');
+    var messages = document.getElementById('supportMessages');
+    var form = document.getElementById('supportForm');
+    var input = document.getElementById('supportInput');
+    var closeBtn = document.getElementById('supportClose');
+    var started = false;
+    var lastProducts = [];
+    var catalog = [];
+    CP.forEach(function (p) { catalog.push({ p: p, cat: 'cp', catName: 'سی‌پی' }); });
+    OFFERS.forEach(function (p) { catalog.push({ p: p, cat: 'offers', catName: 'آفرها' }); });
+    DOUBLES.forEach(function (p) { catalog.push({ p: p, cat: 'doubles', catName: 'سی‌پی دوبل' }); });
+
+    function normalizeText(s) {
+      s = String(s || '').toLowerCase();
+      var faDigits = '۰۱۲۳۴۵۶۷۸۹';
+      var arDigits = '٠١٢٣٤٥٦٧٨٩';
+      for (var i = 0; i < 10; i++) {
+        s = s.split(faDigits[i]).join(String(i));
+        s = s.split(arDigits[i]).join(String(i));
+      }
+      s = s.replace(/ي/g, 'ی').replace(/ك/g, 'ک').replace(/ة/g, 'ه').replace(/ؤ/g, 'و').replace(/إ/g, 'ا').replace(/أ/g, 'ا');
+      s = s.replace(/\bcp\b/g, 'سی پی').replace(/\bghost\b/g, 'گوست').replace(/\bdouble\b/g, 'دوبل');
+      s = s.replace(/‌/g, ' ').replace(/[؟?؛،ـ٪]/g, ' ').replace(/[^\u0600-\u06FFa-zA-Z0-9+]+/g, ' ').replace(/\s+/g, ' ').trim();
+      return s;
+    }
+    function displayName(item) {
+      if (item.cat === 'cp' && item.p.amount) return fa(item.p.amount) + ' سی‌پی';
+      return item.p.name;
+    }
+    function scrollChat() {
+      setTimeout(function () { messages.scrollTop = messages.scrollHeight; }, 35);
+    }
+    function makeAction(parent, action) {
+      var el;
+      if (action.href) {
+        el = document.createElement('a');
+        el.href = action.href;
+        el.target = '_blank';
+        el.rel = 'noopener';
+      } else {
+        el = document.createElement('button');
+        el.type = 'button';
+      }
+      el.className = 'sp-action' + (action.primary ? ' primary' : '');
+      el.textContent = action.label;
+      el.addEventListener('click', function () {
+        if (action.type === 'products') {
+          setPanel(false); showView('home'); showTab('cp');
+          setTimeout(function () { document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60);
+        } else if (action.type === 'offers') {
+          setPanel(false); showView('home'); showTab('offers');
+          setTimeout(function () { document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60);
+        } else if (action.type === 'cart') {
+          setPanel(false); renderCart(); showView('cart');
+        } else if (action.type === 'profile') {
+          setPanel(false); renderProfile(); showView('profile');
+        } else if (action.type === 'payment') {
+          setPanel(false); showView('home');
+          setTimeout(function () { document.querySelector('.paybox').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60);
+        } else if (action.type === 'ask-product') {
+          input.value = '';
+          input.focus();
+          addBotMessage('اسم یا مقدار محصول رو بنویس؛ مثلاً «۸۰ سی‌پی»، «بتل‌پس» یا «آفر گوست پلاسما». من قیمت، موجودی و زمان تحویلش رو از کاتالوگ فعلی سایت پیدا می‌کنم.');
+        }
+      });
+      parent.appendChild(el);
+    }
+    function addMessage(text, who, actions) {
+      var box = document.createElement('div');
+      box.className = 'msg ' + who;
+      box.textContent = text;
+      if (actions && actions.length) {
+        var row = document.createElement('div');
+        row.className = 'sp-actions';
+        actions.forEach(function (a) { makeAction(row, a); });
+        box.appendChild(row);
+      }
+      messages.appendChild(box);
+      scrollChat();
+      return box;
+    }
+    function addBotMessage(text, actions) { return addMessage(text, 'bot', actions); }
+    function addProductCard(item) {
+      var p = item.p;
+      var box = document.createElement('div');
+      box.className = 'msg bot';
+      var title = document.createElement('div');
+      title.className = 'mtitle';
+      title.textContent = displayName(item);
+      box.appendChild(title);
+      var meta = document.createElement('div');
+      meta.className = 'mmeta';
+      var lines = [];
+      lines.push('بخش: ' + item.catName);
+      lines.push('وضعیت: ' + (p.stock ? 'موجود' : 'ناموجود'));
+      if (p.delivery && p.delivery !== '—') lines.push('تحویل: ' + p.delivery);
+      lines.push('نیاز به لاگین: ' + (p.login ? 'بله' : 'خیر'));
+      if (p.tags && p.tags.length) lines.push('برچسب: ' + p.tags.join('، '));
+      if (p.note) lines.push('توضیح: ' + p.note);
+      meta.textContent = lines.join('\n');
+      box.appendChild(meta);
+      if (p.stock && p.price != null) {
+        var price = document.createElement('div');
+        price.className = 'mprice';
+        price.textContent = 'قیمت: ' + fa(p.price) + ' تومان';
+        box.appendChild(price);
+        var row = document.createElement('div');
+        row.className = 'sp-actions';
+        makeAction(row, { label: 'خرید', primary: true, type: 'buy-product', product: p });
+        makeAction(row, { label: 'افزودن به سبد', type: 'cart-product', product: p });
+        box.appendChild(row);
+      }
+      messages.appendChild(box);
+      scrollChat();
+    }
+    var originalMakeAction = makeAction;
+    makeAction = function (parent, action) {
+      if (action.type === 'buy-product' || action.type === 'cart-product') {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'sp-action' + (action.primary ? ' primary' : '');
+        b.textContent = action.label;
+        b.addEventListener('click', function () {
+          if (action.type === 'buy-product') {
+            setPanel(false);
+            openOrder(action.product);
+          } else {
+            addToCart(action.product, null);
+            b.textContent = '✓ به سبد اضافه شد';
+          }
+        });
+        parent.appendChild(b);
+        return;
+      }
+      originalMakeAction(parent, action);
+    };
+    function showProducts(results, intro) {
+      lastProducts = results.slice(0, 5);
+      addBotMessage(intro || ('این محصول‌ها رو در کاتالوگ فعلی پیدا کردم (' + fa(lastProducts.length) + ' مورد):'));
+      lastProducts.forEach(addProductCard);
+    }
+    function searchProducts(raw) {
+      var q = normalizeText(raw);
+      var stop = ['قیمت', 'چنده', 'چقدر', 'موجود', 'هست', 'داری', 'دارید', 'میخوام', 'میخواهم', 'خرید', 'محصول', 'لطفا', 'رو', 'را', 'به', 'از', 'تومان', 'چی', 'چیه'];
+      var nums = q.match(/\d+/g) || [];
+      var terms = q.split(' ').filter(function (t) { return t && stop.indexOf(t) < 0; });
+      if (nums.length && (q.indexOf('سی پی') >= 0 || terms.length <= 2) && q.indexOf('افر') < 0 && q.indexOf('دوبل') < 0) {
+        var exact = catalog.filter(function (item) { return item.cat === 'cp' && item.p.amount === Number(nums[0]); });
+        if (exact.length) return exact;
+      }
+      var phrase = terms.join(' ');
+      var scored = [];
+      catalog.forEach(function (item) {
+        var p = item.p;
+        var hay = normalizeText(p.name + ' ' + (p.tags || []).join(' ') + ' ' + item.catName + ' ' + (p.amount || ''));
+        var score = 0;
+        if (phrase.length >= 3 && hay === phrase) score += 100;
+        if (phrase.length >= 3 && hay.indexOf(phrase) >= 0) score += 55;
+        var matchedTerms = 0;
+        terms.forEach(function (t) {
+          if (t.length >= 2 && hay.indexOf(t) >= 0) { score += 12; matchedTerms++; }
+        });
+        if (p.amount && nums.indexOf(String(p.amount)) >= 0) score += 45;
+        if (q.indexOf('افر') >= 0 && item.cat === 'offers') score += 14;
+        if (q.indexOf('لیمیت') >= 0 && normalizeText(p.name).indexOf('لیمیت') >= 0) score += 22;
+        if (q.indexOf('دوبل') >= 0 && item.cat === 'doubles') score += 24;
+        if (q.indexOf('بتل پس') >= 0 && normalizeText(p.name).indexOf('بتل پس') >= 0) score += 24;
+        if (p.stock) score += 2;
+        var phraseHit = phrase.length >= 3 && hay.indexOf(phrase) >= 0;
+        var amountHit = p.amount && nums.indexOf(String(p.amount)) >= 0;
+        if (score >= 12 && (terms.length < 3 || matchedTerms >= 2 || phraseHit || amountHit)) scored.push({ item: item, score: score });
+      });
+      scored.sort(function (a, b) {
+        if (b.score !== a.score) return b.score - a.score;
+        if (a.item.p.stock !== b.item.p.stock) return a.item.p.stock ? -1 : 1;
+        var ap = a.item.p.price == null ? 999999999 : a.item.p.price;
+        var bp = b.item.p.price == null ? 999999999 : b.item.p.price;
+        return ap - bp;
+      });
+      var seen = {};
+      var out = [];
+      scored.forEach(function (x) {
+        var key = x.item.cat + '|' + x.item.p.name + '|' + x.item.p.price + '|' + x.item.p.stock;
+        if (!seen[key]) { seen[key] = true; out.push(x.item); }
+      });
+      return out;
+    }
+    function humanActions() {
+      return [
+        { label: 'پشتیبانی واتساپ', href: 'https://wa.me/' + WA_NUMBER, primary: true },
+        { label: 'پشتیبانی روبیکا', href: RUBIKA_URL },
+        { label: 'ربات تلگرام', href: 'https://t.me/Codmshoopbot' }
+      ];
+    }
+    function answerQuestion(raw) {
+      var q = normalizeText(raw);
+      if (!q) return;
+      if (q.length <= 2) {
+        addBotMessage('کمی بیشتر توضیح بده؛ مثلاً اسم محصول، مقدار سی‌پی یا موضوع سؤالت رو بنویس.');
+        return;
+      }
+      if (q === 'سلام' || q.indexOf('سلام') === 0 || q === 'درود' || q === 'hi' || q === 'hello') {
+        addBotMessage('سلام 👋 خوش اومدی به CP REBORN. می‌تونم قیمت و موجودی محصول‌ها رو پیدا کنم یا روش خرید، پرداخت و تحویل رو توضیح بدم.', [
+          { label: 'مشاهده محصول‌ها', type: 'products', primary: true },
+          { label: 'پیدا کردن محصول', type: 'ask-product' }
+        ]);
+        return;
+      }
+      if ((q.indexOf('رمز') >= 0 || q.indexOf('پسورد') >= 0) && (q.indexOf('اینجا') >= 0 || q.indexOf('بفرستم') >= 0 || q.indexOf('ارسال') >= 0 || q.indexOf('امن') >= 0)) {
+        addBotMessage('رمز اکتیویژن رو اینجا در چت پشتیبانی نفرست. فقط وقتی محصولی رو برای خرید انتخاب کردی و فرم سفارش باز شد، اگر اون محصول برچسب «نیاز به لاگین» داشت، ایمیل و رمز رو داخل همان فرم وارد کن.');
+        return;
+      }
+      if ((q.indexOf('سفارش') >= 0 || q.indexOf('خریدم') >= 0) && (q.indexOf('نرسید') >= 0 || q.indexOf('پیگیری') >= 0 || q.indexOf('کجاست') >= 0 || q.indexOf('دیر') >= 0 || q.indexOf('مشکل') >= 0)) {
+        addBotMessage('من به سفارش‌های ثبت‌شده در واتساپ، روبیکا یا تلگرام دسترسی زنده ندارم. اگر سفارشت از همین دستگاه ثبت شده، سابقه‌اش در بخش پروفایل دیده می‌شه. برای پیگیری، نام، شماره موبایل، محصول و رسید پرداخت رو برای پشتیبانی انسانی بفرست.', humanActions().concat([{ label: 'مشاهده پروفایل', type: 'profile' }]));
+        return;
+      }
+      if (q.indexOf('اشتباه') >= 0 || q.indexOf('برگشت') >= 0 || q.indexOf('بازگشت') >= 0 || q.indexOf('کنسل') >= 0 || q.indexOf('لغو') >= 0) {
+        addBotMessage('برای پرداخت اشتباه، اطلاعات نادرست یا لغو سفارش، سریع با پشتیبانی انسانی در ارتباط باش و رسید و مشخصات سفارش رو آماده کن تا بررسی بشه. از اینجا نمی‌تونم نتیجه رو قطعی اعلام کنم.', humanActions());
+        return;
+      }
+      if (q.indexOf('پشتیبانی انسانی') >= 0 || q.indexOf('ادمین') >= 0 || q.indexOf('تماس') >= 0 || q.indexOf('انسانی') >= 0) {
+        addBotMessage('برای صحبت با پشتیبانی انسانی، یکی از راه‌های زیر رو انتخاب کن. اگر موضوع سفارش قبلیه، رسید پرداخت و نام اکانت رو هم آماده داشته باش.', humanActions());
+        return;
+      }
+      if (q.indexOf('ربات') >= 0 || q.indexOf('تلگرام') >= 0) {
+        addBotMessage('ربات تلگرام فروشگاه هم فعاله. داخل ربات می‌تونی محصول رو انتخاب کنی، فرم سفارش رو کامل کنی و رسید پرداخت رو همان‌جا بفرستی؛ سفارش مستقیم برای فروشگاه ارسال می‌شه.', [
+          { label: 'ورود به ربات تلگرام', href: 'https://t.me/Codmshoopbot', primary: true }
+        ]);
+        return;
+      }
+      if (q.indexOf('پیدا کردن محصول') >= 0 || q.indexOf('جستجوی محصول') >= 0 || q.indexOf('جستجو') >= 0) {
+        addBotMessage('اسم یا مقدار محصول رو بنویس؛ مثلاً «۸۰ سی‌پی»، «بتل‌پس» یا «آفر گوست پلاسما». قیمت، موجودی، زمان تحویل و نیاز به لاگین رو از کاتالوگ فعلی سایت بهت نشون می‌دم.');
+        input.focus();
+        return;
+      }
+      if (q.indexOf('ارزان ترین') >= 0 || q.indexOf('ارزون ترین') >= 0) {
+        var pool = catalog.filter(function (item) { return item.p.stock && item.p.price != null; });
+        if (q.indexOf('افر') >= 0) pool = pool.filter(function (item) { return item.cat === 'offers'; });
+        else if (q.indexOf('سی پی') >= 0 && q.indexOf('افر') < 0) pool = pool.filter(function (item) { return item.cat === 'cp'; });
+        pool.sort(function (a, b) { return a.p.price - b.p.price; });
+        showProducts(pool.slice(0, 3), 'این‌ها ارزان‌ترین گزینه‌های موجود فعلی هستن:');
+        return;
+      }
+      if (q.indexOf('موجود') >= 0 && (q.indexOf('چی') >= 0 || q.indexOf('چه') >= 0 || q.indexOf('لیست') >= 0)) {
+        var cCp = catalog.filter(function (i) { return i.cat === 'cp' && i.p.stock; }).length;
+        var cOff = catalog.filter(function (i) { return i.cat === 'offers' && i.p.stock; }).length;
+        var cDb = catalog.filter(function (i) { return i.cat === 'doubles' && i.p.stock; }).length;
+        addBotMessage('در کاتالوگ فعلی سایت، ' + fa(cCp) + ' پک سی‌پی و ' + fa(cOff) + ' آفر موجوده. تعداد سی‌پی دوبل موجود در حال حاضر ' + fa(cDb) + ' مورده. اسم محصول رو بنویسی، دقیقش رو برات پیدا می‌کنم.', [
+          { label: 'مشاهده سی‌پی‌ها', type: 'products', primary: true },
+          { label: 'مشاهده آفرها', type: 'offers' }
+        ]);
+        return;
+      }
+      if (q.indexOf('تحویل') >= 0 || q.indexOf('چقدر طول') >= 0 || q.indexOf('کی میاد') >= 0 || q.indexOf('زمان') >= 0) {
+        var dr = searchProducts(raw);
+        if (dr.length && normalizeText(raw).split(' ').length > 3) {
+          showProducts(dr.slice(0, 3), 'زمان تحویل محصول پیدا شده اینه:');
+        } else {
+          addBotMessage('زمان تحویل روی کارت هر محصول نوشته شده. بیشتر پک‌های سی‌پی ۱ تا ۲۰ دقیقه و بیشتر آفرها حدود ۲ تا ۳۰ دقیقه زمان می‌برن؛ زمان دقیق بعد از پرداخت، ارسال رسید و بررسی اطلاعات سفارش انجام می‌شه.');
+        }
+        return;
+      }
+      if (q.indexOf('پرداخت') >= 0 || q.indexOf('کارت به کارت') >= 0 || q.indexOf('رسید') >= 0 || q.indexOf('درگاه') >= 0 || q.indexOf('واریز') >= 0) {
+        addBotMessage('پرداخت در سایت با کارت‌به‌کارته و درگاه آنلاین نداره. اول محصول رو انتخاب کن، مبلغ رو به شماره کارت بخش «اطلاعات پرداخت» واریز کن، بعد فرم سفارش رو بفرست و رسید رو در همان چت واتساپ یا روبیکا ارسال کن. اگر با ربات تلگرام سفارش بدی، رسید رو داخل خود ربات می‌فرستی.', [
+          { label: 'مشاهده اطلاعات پرداخت', type: 'payment', primary: true },
+          { label: 'سفارش با ربات تلگرام', href: 'https://t.me/Codmshoopbot' }
+        ]);
+        return;
+      }
+      if (q.indexOf('روش خرید') >= 0 || q.indexOf('چطور بخرم') >= 0 || q.indexOf('چگونه بخرم') >= 0 || q.indexOf('سفارش بدم') >= 0 || q.indexOf('خرید کنم') >= 0) {
+        addBotMessage('روش خرید اینه:\n۱. محصول رو انتخاب کن و «خرید» رو بزن، یا چند محصول رو به سبد خرید اضافه کن.\n۲. مبلغ رو کارت‌به‌کارت کن.\n۳. فرم سفارش رو کامل و با واتساپ یا روبیکا ارسال کن.\n۴. رسید پرداخت رو در همان چت بفرست.\nاگر محصول برچسب «نیاز به لاگین» داشته باشه، ایمیل و رمز اکتیویژن هم در فرم لازم می‌شه.', [
+          { label: 'مشاهده محصول‌ها', type: 'products', primary: true },
+          { label: 'رفتن به سبد خرید', type: 'cart' }
+        ]);
+        return;
+      }
+      if (q.indexOf('سبد') >= 0) {
+        addBotMessage('با دکمه «افزودن به سبد» روی هر محصول می‌تونی چند محصول رو با هم انتخاب کنی. از نوار پایین صفحه وارد سبد شو، تعدادها رو تنظیم کن و در پایان «ثبت سفارش سبد خرید» رو بزن. در حال حاضر ' + fa(cartQty()) + ' قلم در سبد این دستگاه هست.', [
+          { label: 'مشاهده سبد خرید', type: 'cart', primary: true }
+        ]);
+        return;
+      }
+      if (q.indexOf('پروفایل') >= 0 || q.indexOf('اطلاعات من') >= 0 || q.indexOf('سفارش های من') >= 0 || q.indexOf('سفارش‌های من') >= 0) {
+        addBotMessage('در بخش پروفایل می‌تونی نام و شماره موبایلت رو ذخیره کنی تا موقع سفارش خودکار پر بشه. سابقه سفارش‌هایی که از همین دستگاه ثبت شدن هم همان‌جا نمایش داده می‌شه. این اطلاعات فقط روی دستگاه خودت ذخیره می‌شن و رمز اکتیویژن هرگز ذخیره نمی‌شه.', [
+          { label: 'مشاهده پروفایل', type: 'profile', primary: true }
+        ]);
+        return;
+      }
+      if (q.indexOf('لاگین') >= 0 || q.indexOf('پسورد') >= 0 || q.indexOf('رمز') >= 0) {
+        var lr = searchProducts(raw);
+        if (lr.length) {
+          showProducts(lr.slice(0, 4), 'مشخصات محصول و نیاز به لاگینش اینه:');
+        } else {
+          addBotMessage('فقط محصول‌هایی که برچسب «نیاز به لاگین» یا «نیاز به پسورد» دارن، به ایمیل و رمز اکتیویژن نیاز دارن. محصول‌های «بدون نیاز به لاگین» این اطلاعات رو نمی‌خوان. رمز رو فقط داخل فرم سفارش همان محصول وارد کن، نه در این چت.');
+        }
+        return;
+      }
+      if (q.indexOf('تخفیف') >= 0 || q.indexOf('افر') >= 0 && q.indexOf('چی') >= 0) {
+        addBotMessage('آفرهای فعلی در بخش «آفرها و سی‌پی دوبل» هستن و قیمت و موجودی‌شون همان چیزی است که روی کارت محصول می‌بینی. اسم آفر رو بنویس تا قیمت دقیقش رو پیدا کنم.', [
+          { label: 'مشاهده آفرها', type: 'offers', primary: true }
+        ]);
+        return;
+      }
+      if (q.indexOf('قانونی') >= 0 || q.indexOf('امنه') >= 0 || q.indexOf('امن') >= 0 || q.indexOf('اعتماد') >= 0 || q.indexOf('بن') >= 0) {
+        addBotMessage('روی کارت هر محصول، نوع و برچسب آن مشخص شده؛ بیشتر پک‌های اصلی با برچسب «سوپرفست قانونی» عرضه می‌شن. قبل از خرید، برچسب، نیاز به لاگین و زمان تحویل همان محصول رو بررسی کن. برای سؤال خاص درباره یک محصول، اسمش رو بنویس تا مشخصاتش رو از کاتالوگ نشونت بدم.');
+        return;
+      }
+      var results = searchProducts(raw);
+      if (lastProducts.length && (q.indexOf('موجود') >= 0 || q.indexOf('قیمت') >= 0 || q.indexOf('تحویل') >= 0 || q.indexOf('لاگین') >= 0)) {
+        var genericWords = ['موجود', 'موجوده', 'قیمت', 'قیمتش', 'چنده', 'چقدر', 'تحویل', 'تحویلش', 'لاگین', 'میخواد', 'میخواهد', 'هست', 'داره', 'داری', 'کیه', 'زمانش'];
+        var meaningful = q.split(' ').filter(function (t) { return t && genericWords.indexOf(t) < 0; });
+        if (!meaningful.length) {
+          showProducts(lastProducts, 'مشخصات آخرین محصولی که پیدا کرده بودم:');
+          return;
+        }
+      }
+      if (results.length) {
+        showProducts(results, results.length === 1 ? 'این محصول رو پیدا کردم:' : 'این محصول‌ها رو پیدا کردم:');
+        return;
+      }
+      addBotMessage('متوجه نشدم یا این مورد در اطلاعات فعلی فروشگاه پیدا نشد. اسم دقیق محصول یا مقدار سی‌پی رو بنویس؛ یا اگر موضوعت سفارش قبلی و پرداخته، با پشتیبانی انسانی صحبت کن.', [
+        { label: 'پیدا کردن محصول', type: 'ask-product', primary: true },
+        { label: 'پشتیبانی واتساپ', href: 'https://wa.me/' + WA_NUMBER }
+      ]);
+    }
+    function setPanel(open) {
+      panel.classList.toggle('open', open);
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+      fab.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open && !started) {
+        started = true;
+        addBotMessage('سلام 👋 من دستیار هوشمند CP REBORN هستم.\nقیمت و موجودی رو از کاتالوگ فعلی همین سایت چک می‌کنم و برای خرید راهنماییت می‌کنم. اسم یا مقدار محصول رو بنویس؛ مثلاً «قیمت ۸۰ سی‌پی» یا «آفر گوست».');
+      }
+      if (open) setTimeout(function () { input.focus(); }, 260);
+    }
+    fab.addEventListener('click', function () { setPanel(!panel.classList.contains('open')); });
+    closeBtn.addEventListener('click', function () { setPanel(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel.classList.contains('open')) setPanel(false);
+    });
+    document.querySelectorAll('#supportQuick .quick-chip').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var text = btn.getAttribute('data-q');
+        addMessage(text, 'user');
+        var typing = addMessage('در حال بررسی…', 'bot');
+        typing.classList.add('typing');
+        setTimeout(function () { typing.remove(); answerQuestion(text); }, 260);
+      });
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      addMessage(text, 'user');
+      var typing = addMessage('در حال بررسی…', 'bot');
+      typing.classList.add('typing');
+      setTimeout(function () { typing.remove(); answerQuestion(text); }, 260);
+    });
+  })();
+
 </script>
 <script>try{var l=document.createElement("link");l.rel="icon";l.type="image/jpeg";l.href=document.getElementById("headLogo").src;document.head.appendChild(l);}catch(e){}</script>
 </body>
