@@ -160,6 +160,10 @@
     .support-fab{bottom:calc(92px + env(safe-area-inset-bottom)); width:56px; height:56px}
     .support-panel{inset-inline:8px; width:auto; bottom:calc(88px + env(safe-area-inset-bottom)); height:min(600px,calc(100dvh - 176px))}
   }
+  @media (max-width:760px){
+    .pimg{aspect-ratio:16/9}
+    .pimg img{object-fit:contain}
+  }
 </style>
 </head>
 <body>
