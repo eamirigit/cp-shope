@@ -177,7 +177,7 @@
     <h1>خرید سی‌پی و آفر کالاف دیوتی موبایل</h1>
     <p>محصولت رو انتخاب کن، مبلغ رو کارت‌به‌کارت کن و سفارش رو از طریق ربات تلگرام ثبت کن؛ سفارش‌ها در سریع‌ترین زمان انجام می‌شن.</p>
     <div class="trust"><span>⚡ تحویل ۱ تا ۲۰ دقیقه</span><span>✅ شارژ قانونی و امن</span><span>🎧 پشتیبانی سریع</span></div>
-    <a class="botcta" href="https://t.me/Codmshoopbot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71l-4.17-3.07-2.01 1.93c-.23.23-.42.42-.86.42z"/></svg> سفارش سریع با ربات تلگرام</a>
+    <a class="botcta" href="https://t.me/Codmshoopbot?start=site" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71l-4.17-3.07-2.01 1.93c-.23.23-.42.42-.86.42z"/></svg> سفارش سریع با ربات تلگرام</a>
   </section>
 
 
@@ -238,7 +238,7 @@
 
 <footer>
   <div class="wrap">
-    ربات تلگرام: <a href="https://t.me/Codmshoopbot" target="_blank" rel="noopener">Codmshoopbot@</a> — پشتیبانی: <a href="https://wa.me/989300820929" target="_blank" rel="noopener">واتساپ</a> — تماس: <a href="tel:+989300820929" dir="ltr">۰۹۳۰ ۰۸۲ ۰۹۲۹</a><br/>
+    ربات تلگرام: <a href="https://t.me/Codmshoopbot?start=site" target="_blank" rel="noopener">Codmshoopbot@</a> — پشتیبانی: <a href="https://wa.me/989300820929" target="_blank" rel="noopener">واتساپ</a> — تماس: <a href="tel:+989300820929" dir="ltr">۰۹۳۰ ۰۸۲ ۰۹۲۹</a><br/>
     CP REBORN — فروش سی‌پی و آفر کالاف دیوتی موبایل
   </div>
 </footer>
@@ -671,7 +671,7 @@
       persistProfileFromForm();
       var hint = document.getElementById('rbHint');
       hint.textContent = 'ربات تلگرام باز شد؛ سفارشت رو داخل ربات کامل کن و رسید رو همون‌جا بفرست. اطلاعات این فرم به تلگرام فرستاده نمی‌شه.';
-      window.open('https://t.me/Codmshoopbot', '_blank');
+      window.open('https://t.me/Codmshoopbot?start=site', '_blank');
     });
     document.getElementById('sendRubika').addEventListener('click', function () {
     var text = buildOrderText();
@@ -887,7 +887,7 @@
       return [
         { label: 'پشتیبانی واتساپ', href: 'https://wa.me/' + WA_NUMBER, primary: true },
         { label: 'پشتیبانی روبیکا', href: RUBIKA_URL },
-        { label: 'ربات تلگرام', href: 'https://t.me/Codmshoopbot' }
+        { label: 'ربات تلگرام', href: 'https://t.me/Codmshoopbot?start=site' }
       ];
     }
     function answerQuestion(raw) {
@@ -922,7 +922,7 @@
       }
       if (q.indexOf('ربات') >= 0 || q.indexOf('تلگرام') >= 0) {
         addBotMessage('ربات تلگرام فروشگاه هم فعاله. داخل ربات می‌تونی محصول رو انتخاب کنی، فرم سفارش رو کامل کنی و رسید پرداخت رو همان‌جا بفرستی؛ سفارش مستقیم برای فروشگاه ارسال می‌شه.', [
-          { label: 'ورود به ربات تلگرام', href: 'https://t.me/Codmshoopbot', primary: true }
+          { label: 'ورود به ربات تلگرام', href: 'https://t.me/Codmshoopbot?start=site', primary: true }
         ]);
         return;
       }
@@ -961,7 +961,7 @@
       if (q.indexOf('پرداخت') >= 0 || q.indexOf('کارت به کارت') >= 0 || q.indexOf('رسید') >= 0 || q.indexOf('درگاه') >= 0 || q.indexOf('واریز') >= 0) {
         addBotMessage('پرداخت در سایت با کارت‌به‌کارته و درگاه آنلاین نداره. اول محصول رو انتخاب کن، مبلغ رو به شماره کارت بخش «اطلاعات پرداخت» واریز کن، بعد فرم سفارش رو بفرست و رسید رو در همان چت واتساپ یا روبیکا ارسال کن. اگر با ربات تلگرام سفارش بدی، رسید رو داخل خود ربات می‌فرستی.', [
           { label: 'مشاهده اطلاعات پرداخت', type: 'payment', primary: true },
-          { label: 'سفارش با ربات تلگرام', href: 'https://t.me/Codmshoopbot' }
+          { label: 'سفارش با ربات تلگرام', href: 'https://t.me/Codmshoopbot?start=site' }
         ]);
         return;
       }
