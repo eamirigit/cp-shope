@@ -668,10 +668,12 @@
   });
 
   document.getElementById('sendTelegram').addEventListener('click', function () {
+      var text = buildOrderText();
+      if (!text) return;
       persistProfileFromForm();
       var hint = document.getElementById('rbHint');
-      hint.textContent = 'ربات تلگرام باز شد؛ سفارشت رو داخل ربات کامل کن و رسید رو همون‌جا بفرست. اطلاعات این فرم به تلگرام فرستاده نمی‌شه.';
-      window.open('https://t.me/Codmshoopbot?start=site', '_blank');
+      hint.textContent = 'در صفحهٔ اشتراک‌گذاری تلگرام، ربات CP REBORN رو انتخاب کن و ارسال رو بزن؛ سفارشت خودکار تو ربات ثبت می‌شه و رسید رو همون‌جا می‌فرستی. اگه ربات رو توی لیست نمی‌بینی، اول یک بار از دکمهٔ ربات توی بالای صفحه بازش کن و Start بزن.';
+      window.open('https://t.me/share/url?url=&text=' + encodeURIComponent(text), '_blank');
     });
     document.getElementById('sendRubika').addEventListener('click', function () {
     var text = buildOrderText();
