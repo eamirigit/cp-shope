@@ -217,13 +217,77 @@
   [data-theme="light"] .quick-chip{background:#f3ecd2; color:var(--text)}
   [data-theme="light"] .quick-chip:hover{color:var(--text)}
   [data-theme="light"] .sp-form{background:#f7f2df}
+
+  /* تم آیفون — الهام از Liquid Glass در iOS 27: شیشهٔ نیمه‌شفاف، بلار، آبی سیستم */
+  [data-theme="ios"]{
+    --bg:#f2f2f7; --bg2:#eef1fb; --panel:rgba(255,255,255,.72); --card:rgba(255,255,255,.66); --card2:rgba(255,255,255,.52);
+    --line:rgba(0,0,0,.08); --text:#1c1c1e; --muted:#6e6e73;
+    --gold:#007aff; --gold2:#0a84ff; --goldD:#ffffff;
+    --wa:#25d366;
+    --chip:rgba(0,122,255,.1); --chipT:#007aff; --chipG:rgba(52,199,89,.12); --chipGT:#248a3d;
+  }
+  [data-theme="ios"] body{background:radial-gradient(640px 300px at 85% -40px, rgba(96,165,250,.38), transparent 70%), radial-gradient(520px 280px at 8% 140px, rgba(167,139,250,.30), transparent 70%), radial-gradient(480px 260px at 95% 620px, rgba(52,199,89,.14), transparent 70%), linear-gradient(180deg,#f6f8ff 0%,#f2f2f7 520px); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',Tahoma,system-ui,sans-serif; padding-bottom:100px}
+  [data-theme="ios"] header{background:rgba(242,242,247,.72); -webkit-backdrop-filter:blur(20px) saturate(180%); backdrop-filter:blur(20px) saturate(180%); border-bottom-color:rgba(0,0,0,.06)}
+  [data-theme="ios"] .hero:before{background:radial-gradient(closest-side,rgba(0,122,255,.14),transparent)}
+  [data-theme="ios"] .herologo{border-color:#fff; box-shadow:0 8px 32px rgba(0,122,255,.28)}
+  [data-theme="ios"] .support{background:rgba(255,255,255,.7); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px)}
+  [data-theme="ios"] .themebtn{background:rgba(255,255,255,.7); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); border-color:rgba(0,0,0,.06)}
+  [data-theme="ios"] .trust span{color:#0057b8; background:rgba(0,122,255,.1); border-color:rgba(0,122,255,.3)}
+  [data-theme="ios"] .catcard,[data-theme="ios"] .card{background:rgba(255,255,255,.66); -webkit-backdrop-filter:blur(16px) saturate(180%); backdrop-filter:blur(16px) saturate(180%); border:1px solid rgba(255,255,255,.85); border-radius:24px; box-shadow:0 4px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.9)}
+  [data-theme="ios"] .card:hover{box-shadow:0 12px 32px rgba(0,0,0,.1), inset 0 1px 0 rgba(255,255,255,.9)}
+  [data-theme="ios"] .pimg{background:#ececf1}
+  [data-theme="ios"] .buy{border-radius:999px; box-shadow:0 6px 18px rgba(0,122,255,.35)}
+  [data-theme="ios"] .buy:disabled{background:#e5e5ea; color:#aeaeb2; box-shadow:none}
+  [data-theme="ios"] .chip{border-color:rgba(0,0,0,.06)}
+  [data-theme="ios"] .chip.d{background:rgba(120,120,128,.12); color:#3c3c43; border-color:rgba(0,0,0,.06)}
+  [data-theme="ios"] .chip.o{background:rgba(255,59,48,.1); color:#ff3b30; border-color:rgba(255,59,48,.3)}
+  [data-theme="ios"] .chip.g{border-color:rgba(52,199,89,.4)}
+  [data-theme="ios"] .offernote{background:rgba(0,122,255,.08); border-color:rgba(0,122,255,.3); color:var(--text)}
+  [data-theme="ios"] .paycard{background:rgba(255,255,255,.75); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border-color:rgba(0,122,255,.35); box-shadow:0 14px 34px rgba(0,0,0,.1)}
+  [data-theme="ios"] .cardnum{background:#f2f2f7; border-color:rgba(0,0,0,.08); color:var(--text)}
+  [data-theme="ios"] .copybtn{background:rgba(120,120,128,.12); color:#007aff; border-color:transparent}
+  [data-theme="ios"] .copybtn:hover{border-color:rgba(0,122,255,.4)}
+  [data-theme="ios"] input{background:rgba(255,255,255,.85); border-color:rgba(0,0,0,.08); color:var(--text); border-radius:12px}
+  [data-theme="ios"] .profcard .ptxt b{color:var(--text)}
+  [data-theme="ios"] .profbtn.ghost{background:rgba(120,120,128,.12); color:#007aff; border-color:transparent}
+  [data-theme="ios"] .addcart{background:rgba(120,120,128,.12); color:#007aff; border-color:transparent; border-radius:12px}
+  [data-theme="ios"] .addcart:hover{color:#0057b8; border-color:rgba(0,122,255,.3)}
+  [data-theme="ios"] .qtybtn{background:rgba(120,120,128,.12); color:#007aff; border-color:transparent}
+  [data-theme="ios"] .dbtn{background:rgba(120,120,128,.12); color:#007aff; border-color:transparent; border-radius:12px}
+  [data-theme="ios"] .dbtn.danger{color:#ff3b30; border-color:rgba(255,59,48,.3)}
+  [data-theme="ios"] .backbtn{background:rgba(255,255,255,.7); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); border-color:rgba(0,0,0,.06)}
+  [data-theme="ios"] .bnav{left:12px; right:12px; bottom:calc(12px + env(safe-area-inset-bottom)); border-radius:28px; background:rgba(255,255,255,.72); -webkit-backdrop-filter:blur(24px) saturate(180%); backdrop-filter:blur(24px) saturate(180%); border:1px solid rgba(255,255,255,.7); border-top:1px solid rgba(255,255,255,.7); box-shadow:0 12px 32px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.9); padding:8px 10px}
+  [data-theme="ios"] .badge{background:#ff3b30}
+  [data-theme="ios"] footer a{color:#007aff}
+  [data-theme="ios"] .hint{color:#248a3d}
+  [data-theme="ios"] .sp-sub{color:#248a3d}
+  [data-theme="ios"] .err{color:#ff3b30}
+  [data-theme="ios"] .cdel{color:#ff3b30}
+  [data-theme="ios"] .support-fab{background:rgba(255,255,255,.82); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,.7); box-shadow:0 8px 24px rgba(0,0,0,.16)}
+  [data-theme="ios"] .support-fab svg path{fill:#007aff}
+  [data-theme="ios"] .support-fab svg circle{fill:#ffffff}
+  [data-theme="ios"] .support-panel{background:rgba(255,255,255,.82); -webkit-backdrop-filter:blur(24px) saturate(180%); backdrop-filter:blur(24px) saturate(180%); border-color:rgba(255,255,255,.7); border-radius:28px; box-shadow:0 16px 48px rgba(0,0,0,.18)}
+  [data-theme="ios"] .sp-head{background:rgba(0,122,255,.06)}
+  [data-theme="ios"] .sp-avatar{box-shadow:0 5px 16px rgba(0,122,255,.3)}
+  [data-theme="ios"] .sp-close{background:rgba(120,120,128,.12); color:#1c1c1e; border-color:transparent}
+  [data-theme="ios"] .msg.bot{background:#e5e5ea; border-color:transparent; color:#1c1c1e}
+  [data-theme="ios"] .msg .mtitle{color:var(--text)}
+  [data-theme="ios"] .msg .mmeta{color:#6e6e73}
+  [data-theme="ios"] .sp-action{color:#007aff; background:rgba(0,122,255,.1); border-color:rgba(0,122,255,.3)}
+  [data-theme="ios"] .quick-chip{background:rgba(120,120,128,.12); color:#007aff}
+  [data-theme="ios"] .quick-chip:hover{color:#0057b8}
+  [data-theme="ios"] .sp-form{background:rgba(255,255,255,.6)}
+  [data-theme="ios"] .sp-form input{border-radius:999px}
+  [data-theme="ios"] dialog{background:rgba(255,255,255,.92); -webkit-backdrop-filter:blur(24px); backdrop-filter:blur(24px); color:var(--text); border:1px solid rgba(255,255,255,.7); border-radius:28px; box-shadow:0 24px 64px rgba(0,0,0,.22)}
+  [data-theme="ios"] dialog::backdrop{background:rgba(0,0,0,.25)}
   .copyright{border-top:1px solid var(--line); margin-top:16px; padding-top:14px; font-size:12.5px; color:var(--muted)}
 </style>
 <script>
   try {
     var _t = localStorage.getItem('cpreborn_theme_v1') || 'auto';
     var _sysLight = !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
-    if (_t === 'light' || (_t === 'auto' && _sysLight)) { document.documentElement.setAttribute('data-theme', 'light'); }
+    if (_t === 'ios') { document.documentElement.setAttribute('data-theme', 'ios'); }
+    else if (_t === 'light' || (_t === 'auto' && _sysLight)) { document.documentElement.setAttribute('data-theme', 'light'); }
   } catch (e) {}
 </script>
 </head>
@@ -1219,14 +1283,15 @@
   function stored() { try { return localStorage.getItem(KEY) || 'auto'; } catch (e) { return 'auto'; } }
   function sysLight() { return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches); }
   function apply(mode) {
-    if (mode === 'light') { document.documentElement.setAttribute('data-theme', 'light'); }
+    if (mode === 'ios') { document.documentElement.setAttribute('data-theme', 'ios'); }
+    else if (mode === 'light') { document.documentElement.setAttribute('data-theme', 'light'); }
     else if (mode === 'dark') { document.documentElement.removeAttribute('data-theme'); }
     else { if (sysLight()) { document.documentElement.setAttribute('data-theme', 'light'); } else { document.documentElement.removeAttribute('data-theme'); } }
-    var icon = mode === 'light' ? '☀️' : (mode === 'dark' ? '🌙' : '🌓');
-    var label = mode === 'light' ? 'تم: روشن' : (mode === 'dark' ? 'تم: تاریک' : 'تم: خودکار');
+    var icon = mode === 'light' ? '☀️' : (mode === 'dark' ? '🌙' : (mode === 'ios' ? '📱' : '🌓'));
+    var label = mode === 'light' ? 'تم: روشن' : (mode === 'dark' ? 'تم: تاریک' : (mode === 'ios' ? 'تم: آیفون' : 'تم: خودکار'));
     btn.textContent = icon; btn.setAttribute('aria-label', label); btn.title = label;
   }
-  var order = ['auto', 'light', 'dark'];
+  var order = ['auto', 'light', 'dark', 'ios'];
   btn.addEventListener('click', function () {
     var cur = stored();
     var next = order[(order.indexOf(cur) + 1) % order.length];
