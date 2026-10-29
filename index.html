@@ -4,6 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CP REBORN — فروشگاه سی‌پی و آفر کالاف دیوتی موبایل</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
     --bg:#070b14; --bg2:#0a1120; --panel:#0e1626; --card:#111c30; --card2:#0d1524;
@@ -13,7 +16,8 @@
     --chip:#16283f; --chipT:#7dd3fc; --chipG:#14532d; --chipGT:#86efac;
   }
   *{box-sizing:border-box; margin:0; padding:0}
-  body{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 340px); color:var(--text); font-family:Tahoma,system-ui,sans-serif; min-height:100vh}
+  button{font-family:inherit}
+  body{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 340px); color:var(--text); font-family:'Estedad',Tahoma,system-ui,sans-serif; min-height:100vh}
   a{color:inherit}
   header{border-bottom:1px solid var(--line); background:rgba(7,11,20,.88); position:sticky; top:0; z-index:10; backdrop-filter:blur(8px)}
   .wrap{max-width:1120px; margin:0 auto; padding:0 16px}
@@ -206,8 +210,8 @@
     --chip-d-bg:rgba(255,255,255,.12); --chip-d-text:#f5f5f7; --dis-bg:#2c2c2e; --dis-text:#636366;
     --hero-glow:rgba(10,132,255,.35); --avatar-glow:rgba(10,132,255,.4); --backdrop:rgba(0,0,0,.45); --herologo-border:rgba(255,255,255,.85);
   }
-  [data-theme="ios"] body{background:radial-gradient(640px 300px at 85% -40px, rgba(96,165,250,.38), transparent 70%), radial-gradient(520px 280px at 8% 140px, rgba(167,139,250,.30), transparent 70%), radial-gradient(480px 260px at 95% 620px, rgba(52,199,89,.14), transparent 70%), linear-gradient(180deg,#f6f8ff 0%,#f2f2f7 520px); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',Tahoma,system-ui,sans-serif; padding-bottom:100px}
-  [data-theme="ios-dark"] body{background:radial-gradient(640px 300px at 85% -40px, rgba(10,132,255,.22), transparent 70%), radial-gradient(520px 280px at 8% 140px, rgba(139,92,246,.18), transparent 70%), radial-gradient(480px 260px at 95% 620px, rgba(48,209,88,.08), transparent 70%), linear-gradient(180deg,#000000 0%,#1c1c1e 520px); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',Tahoma,system-ui,sans-serif; padding-bottom:100px}
+  [data-theme="ios"] body{background:radial-gradient(640px 300px at 85% -40px, rgba(96,165,250,.38), transparent 70%), radial-gradient(520px 280px at 8% 140px, rgba(167,139,250,.30), transparent 70%), radial-gradient(480px 260px at 95% 620px, rgba(52,199,89,.14), transparent 70%), linear-gradient(180deg,#f6f8ff 0%,#f2f2f7 520px); font-family:'Estedad',-apple-system,BlinkMacSystemFont,'SF Pro Text',Tahoma,system-ui,sans-serif; padding-bottom:100px}
+  [data-theme="ios-dark"] body{background:radial-gradient(640px 300px at 85% -40px, rgba(10,132,255,.22), transparent 70%), radial-gradient(520px 280px at 8% 140px, rgba(139,92,246,.18), transparent 70%), radial-gradient(480px 260px at 95% 620px, rgba(48,209,88,.08), transparent 70%), linear-gradient(180deg,#000000 0%,#1c1c1e 520px); font-family:'Estedad',-apple-system,BlinkMacSystemFont,'SF Pro Text',Tahoma,system-ui,sans-serif; padding-bottom:100px}
   [data-theme="ios"] header,[data-theme="ios-dark"] header{background:var(--glass-bar); -webkit-backdrop-filter:blur(20px) saturate(180%); backdrop-filter:blur(20px) saturate(180%); border-bottom-color:var(--line)}
   [data-theme="ios"] .hero:before,[data-theme="ios-dark"] .hero:before{background:radial-gradient(closest-side,var(--hero-wash),transparent)}
   [data-theme="ios"] .herologo,[data-theme="ios-dark"] .herologo{border-color:var(--herologo-border); box-shadow:0 8px 32px var(--hero-glow)}
