@@ -174,120 +174,102 @@
 
   .baracts{display:flex; gap:8px; align-items:center}
   .themebtn{width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--panel); color:var(--text); font-size:18px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0}
-  [data-theme="light"]{
-    --bg:#f4efe0; --bg2:#fbf7ea; --panel:#ffffff; --card:#ffffff; --card2:#fdf8e7;
-    --line:#ddd2b3; --text:#1e2740; --muted:#5f6b82;
-    --gold:#b8860b; --gold2:#d99a06; --goldD:#1a1206;
-    --chip:#eef3fb; --chipT:#1d5f9e; --chipG:#dcfce7; --chipGT:#166534;
-  }
-  [data-theme="light"] header{background:rgba(251,247,234,.92)}
-  [data-theme="light"] .support:hover{color:var(--text)}
-  [data-theme="light"] .trust span{color:#7a5b00; background:rgba(217,158,6,.12); border-color:rgba(217,158,6,.4)}
-  [data-theme="light"] .offernote{color:var(--text)}
-  [data-theme="light"] .pimg{background:#efe8d2}
-  [data-theme="light"] .card:hover{box-shadow:0 12px 28px rgba(0,0,0,.15)}
-  [data-theme="light"] .chip{border-color:#cbd5e1}
-  [data-theme="light"] .chip.d{background:#eef3fb; color:#33415e; border-color:#cbd5e1}
-  [data-theme="light"] .chip.o{background:#fef2f2; color:#b91c1c; border-color:#fecaca}
-  [data-theme="light"] .chip.g{border-color:#86efac}
-  [data-theme="light"] .buy:disabled{background:#e5e0cc; color:#8a94a8}
-  [data-theme="light"] .paycard{background:linear-gradient(135deg,#fff8dd,#f3ecd2); border-color:rgba(217,158,6,.5); box-shadow:0 14px 34px rgba(0,0,0,.12)}
-  [data-theme="light"] .cardnum{background:#f7f2df; border-color:#ddd2b3; color:#7a5b00}
-  [data-theme="light"] .copybtn{background:#f3ecd2; color:var(--text)}
-  [data-theme="light"] input{background:#ffffff; border-color:#ddd2b3; color:var(--text)}
-  [data-theme="light"] .profcard .ptxt b{color:var(--text)}
-  [data-theme="light"] .profbtn.ghost{background:#f3ecd2; color:var(--text)}
-  [data-theme="light"] .addcart{background:#f3ecd2; color:var(--text)}
-  [data-theme="light"] .addcart:hover{color:var(--text)}
-  [data-theme="light"] .qtybtn{background:#f3ecd2; color:var(--text)}
-  [data-theme="light"] .dbtn{background:#f3ecd2; color:var(--text)}
-  [data-theme="light"] .dbtn.danger{color:#b91c1c; border-color:#fca5a5}
-  [data-theme="light"] .bnav{background:rgba(251,247,234,.94)}
-  [data-theme="light"] footer a{color:#3b5a8a}
-  [data-theme="light"] .hint{color:#15803d}
-  [data-theme="light"] .sp-sub{color:#15803d}
-  [data-theme="light"] .err{color:#dc2626}
-  [data-theme="light"] .cdel{color:#dc2626}
-  [data-theme="light"] .support-panel{background:linear-gradient(180deg,#ffffff,#fdf8e7); border-color:rgba(217,158,6,.45)}
-  [data-theme="light"] .sp-close{background:#f3ecd2; color:var(--text)}
-  [data-theme="light"] .msg.bot{background:#eef3fb; border-color:#cbd5e1}
-  [data-theme="light"] .msg .mtitle{color:var(--text)}
-  [data-theme="light"] .msg .mmeta{color:#5f6b82}
-  [data-theme="light"] .sp-action{color:#7a5b00; background:rgba(217,158,6,.12); border-color:rgba(217,158,6,.45)}
-  [data-theme="light"] .quick-chip{background:#f3ecd2; color:var(--text)}
-  [data-theme="light"] .quick-chip:hover{color:var(--text)}
-  [data-theme="light"] .sp-form{background:#f7f2df}
 
-  /* تم آیفون — الهام از Liquid Glass در iOS 27: شیشهٔ نیمه‌شفاف، بلار، آبی سیستم */
+  /* تم آیفون — Liquid Glass در iOS 27؛ روشن و تاریک هر دو شیشه‌ای‌اند، خودکار پیرو نایت‌مود گوشی است */
   [data-theme="ios"]{
     --bg:#f2f2f7; --bg2:#eef1fb; --panel:rgba(255,255,255,.72); --card:rgba(255,255,255,.66); --card2:rgba(255,255,255,.52);
     --line:rgba(0,0,0,.08); --text:#1c1c1e; --muted:#6e6e73;
     --gold:#007aff; --gold2:#0a84ff; --goldD:#ffffff;
     --wa:#25d366;
     --chip:rgba(0,122,255,.1); --chipT:#007aff; --chipG:rgba(52,199,89,.12); --chipGT:#248a3d;
+    --glass:rgba(255,255,255,.66); --glass-strong:rgba(255,255,255,.82); --glass-border:rgba(255,255,255,.85); --glass-bar:rgba(242,242,247,.72);
+    --glass-shadow:0 4px 24px rgba(0,0,0,.06); --glass-inset:inset 0 1px 0 rgba(255,255,255,.9); --hover-shadow:0 12px 32px rgba(0,0,0,.1);
+    --nav-shadow:0 12px 32px rgba(0,0,0,.14); --panel-shadow:0 16px 48px rgba(0,0,0,.18); --dlg-shadow:0 24px 64px rgba(0,0,0,.22); --pay-shadow:0 14px 34px rgba(0,0,0,.1); --buy-shadow:0 6px 18px rgba(0,122,255,.35); --fab-shadow:0 8px 24px rgba(0,0,0,.16);
+    --btn-gray:rgba(120,120,128,.12); --field:rgba(255,255,255,.85); --bot-bubble:#e5e5ea; --img-bg:#ececf1; --cardnum-bg:#f2f2f7; --form-bg:rgba(255,255,255,.6); --dlg-bg:rgba(255,255,255,.92);
+    --accent-soft:rgba(0,122,255,.1); --accent-border:rgba(0,122,255,.3); --accent-text:#0057b8; --hero-wash:rgba(0,122,255,.14); --ok-border:rgba(52,199,89,.4);
+    --ok:#248a3d; --bad:#ff3b30; --bad-soft:rgba(255,59,48,.1); --bad-border:rgba(255,59,48,.3);
+    --chip-d-bg:rgba(120,120,128,.12); --chip-d-text:#3c3c43; --dis-bg:#e5e5ea; --dis-text:#aeaeb2;
+    --hero-glow:rgba(0,122,255,.28); --avatar-glow:rgba(0,122,255,.3); --backdrop:rgba(0,0,0,.25); --herologo-border:#fff;
+  }
+  [data-theme="ios-dark"]{
+    --bg:#000000; --bg2:#1c1c1e; --panel:rgba(28,28,30,.72); --card:rgba(28,28,30,.66); --card2:rgba(44,44,46,.6);
+    --line:rgba(255,255,255,.12); --text:#f5f5f7; --muted:#98989d;
+    --gold:#0a84ff; --gold2:#409cff; --goldD:#ffffff;
+    --wa:#25d366;
+    --chip:rgba(10,132,255,.16); --chipT:#409cff; --chipG:rgba(48,209,88,.14); --chipGT:#30d158;
+    --glass:rgba(28,28,30,.72); --glass-strong:rgba(44,44,46,.85); --glass-border:rgba(255,255,255,.14); --glass-bar:rgba(28,28,30,.72);
+    --glass-shadow:0 4px 24px rgba(0,0,0,.45); --glass-inset:inset 0 1px 0 rgba(255,255,255,.12); --hover-shadow:0 12px 32px rgba(0,0,0,.5);
+    --nav-shadow:0 12px 32px rgba(0,0,0,.55); --panel-shadow:0 16px 48px rgba(0,0,0,.55); --dlg-shadow:0 24px 64px rgba(0,0,0,.6); --pay-shadow:0 14px 34px rgba(0,0,0,.45); --buy-shadow:0 6px 18px rgba(10,132,255,.4); --fab-shadow:0 8px 24px rgba(0,0,0,.5);
+    --btn-gray:rgba(255,255,255,.12); --field:rgba(255,255,255,.08); --bot-bubble:#2c2c2e; --img-bg:#1c1c1e; --cardnum-bg:#1c1c1e; --form-bg:rgba(255,255,255,.06); --dlg-bg:rgba(28,28,30,.92);
+    --accent-soft:rgba(10,132,255,.16); --accent-border:rgba(10,132,255,.4); --accent-text:#409cff; --hero-wash:rgba(10,132,255,.16); --ok-border:rgba(48,209,88,.4);
+    --ok:#30d158; --bad:#ff453a; --bad-soft:rgba(255,69,58,.16); --bad-border:rgba(255,69,58,.4);
+    --chip-d-bg:rgba(255,255,255,.12); --chip-d-text:#f5f5f7; --dis-bg:#2c2c2e; --dis-text:#636366;
+    --hero-glow:rgba(10,132,255,.35); --avatar-glow:rgba(10,132,255,.4); --backdrop:rgba(0,0,0,.45); --herologo-border:rgba(255,255,255,.85);
   }
   [data-theme="ios"] body{background:radial-gradient(640px 300px at 85% -40px, rgba(96,165,250,.38), transparent 70%), radial-gradient(520px 280px at 8% 140px, rgba(167,139,250,.30), transparent 70%), radial-gradient(480px 260px at 95% 620px, rgba(52,199,89,.14), transparent 70%), linear-gradient(180deg,#f6f8ff 0%,#f2f2f7 520px); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',Tahoma,system-ui,sans-serif; padding-bottom:100px}
-  [data-theme="ios"] header{background:rgba(242,242,247,.72); -webkit-backdrop-filter:blur(20px) saturate(180%); backdrop-filter:blur(20px) saturate(180%); border-bottom-color:rgba(0,0,0,.06)}
-  [data-theme="ios"] .hero:before{background:radial-gradient(closest-side,rgba(0,122,255,.14),transparent)}
-  [data-theme="ios"] .herologo{border-color:#fff; box-shadow:0 8px 32px rgba(0,122,255,.28)}
-  [data-theme="ios"] .support{background:rgba(255,255,255,.7); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px)}
-  [data-theme="ios"] .themebtn{background:rgba(255,255,255,.7); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); border-color:rgba(0,0,0,.06)}
-  [data-theme="ios"] .trust span{color:#0057b8; background:rgba(0,122,255,.1); border-color:rgba(0,122,255,.3)}
-  [data-theme="ios"] .catcard,[data-theme="ios"] .card{background:rgba(255,255,255,.66); -webkit-backdrop-filter:blur(16px) saturate(180%); backdrop-filter:blur(16px) saturate(180%); border:1px solid rgba(255,255,255,.85); border-radius:24px; box-shadow:0 4px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.9)}
-  [data-theme="ios"] .card:hover{box-shadow:0 12px 32px rgba(0,0,0,.1), inset 0 1px 0 rgba(255,255,255,.9)}
-  [data-theme="ios"] .pimg{background:#ececf1}
-  [data-theme="ios"] .buy{border-radius:999px; box-shadow:0 6px 18px rgba(0,122,255,.35)}
-  [data-theme="ios"] .buy:disabled{background:#e5e5ea; color:#aeaeb2; box-shadow:none}
-  [data-theme="ios"] .chip{border-color:rgba(0,0,0,.06)}
-  [data-theme="ios"] .chip.d{background:rgba(120,120,128,.12); color:#3c3c43; border-color:rgba(0,0,0,.06)}
-  [data-theme="ios"] .chip.o{background:rgba(255,59,48,.1); color:#ff3b30; border-color:rgba(255,59,48,.3)}
-  [data-theme="ios"] .chip.g{border-color:rgba(52,199,89,.4)}
-  [data-theme="ios"] .offernote{background:rgba(0,122,255,.08); border-color:rgba(0,122,255,.3); color:var(--text)}
-  [data-theme="ios"] .paycard{background:rgba(255,255,255,.75); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border-color:rgba(0,122,255,.35); box-shadow:0 14px 34px rgba(0,0,0,.1)}
-  [data-theme="ios"] .cardnum{background:#f2f2f7; border-color:rgba(0,0,0,.08); color:var(--text)}
-  [data-theme="ios"] .copybtn{background:rgba(120,120,128,.12); color:#007aff; border-color:transparent}
-  [data-theme="ios"] .copybtn:hover{border-color:rgba(0,122,255,.4)}
-  [data-theme="ios"] input{background:rgba(255,255,255,.85); border-color:rgba(0,0,0,.08); color:var(--text); border-radius:12px}
-  [data-theme="ios"] .profcard .ptxt b{color:var(--text)}
-  [data-theme="ios"] .profbtn.ghost{background:rgba(120,120,128,.12); color:#007aff; border-color:transparent}
-  [data-theme="ios"] .addcart{background:rgba(120,120,128,.12); color:#007aff; border-color:transparent; border-radius:12px}
-  [data-theme="ios"] .addcart:hover{color:#0057b8; border-color:rgba(0,122,255,.3)}
-  [data-theme="ios"] .qtybtn{background:rgba(120,120,128,.12); color:#007aff; border-color:transparent}
-  [data-theme="ios"] .dbtn{background:rgba(120,120,128,.12); color:#007aff; border-color:transparent; border-radius:12px}
-  [data-theme="ios"] .dbtn.danger{color:#ff3b30; border-color:rgba(255,59,48,.3)}
-  [data-theme="ios"] .backbtn{background:rgba(255,255,255,.7); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); border-color:rgba(0,0,0,.06)}
-  [data-theme="ios"] .bnav{left:12px; right:12px; bottom:calc(12px + env(safe-area-inset-bottom)); border-radius:28px; background:rgba(255,255,255,.72); -webkit-backdrop-filter:blur(24px) saturate(180%); backdrop-filter:blur(24px) saturate(180%); border:1px solid rgba(255,255,255,.7); border-top:1px solid rgba(255,255,255,.7); box-shadow:0 12px 32px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.9); padding:8px 10px}
-  [data-theme="ios"] .badge{background:#ff3b30}
-  [data-theme="ios"] footer a{color:#007aff}
-  [data-theme="ios"] .hint{color:#248a3d}
-  [data-theme="ios"] .sp-sub{color:#248a3d}
-  [data-theme="ios"] .err{color:#ff3b30}
-  [data-theme="ios"] .cdel{color:#ff3b30}
-  [data-theme="ios"] .support-fab{background:rgba(255,255,255,.82); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,.7); box-shadow:0 8px 24px rgba(0,0,0,.16)}
-  [data-theme="ios"] .support-fab svg path{fill:#007aff}
-  [data-theme="ios"] .support-fab svg circle{fill:#ffffff}
-  [data-theme="ios"] .support-panel{background:rgba(255,255,255,.82); -webkit-backdrop-filter:blur(24px) saturate(180%); backdrop-filter:blur(24px) saturate(180%); border-color:rgba(255,255,255,.7); border-radius:28px; box-shadow:0 16px 48px rgba(0,0,0,.18)}
-  [data-theme="ios"] .sp-head{background:rgba(0,122,255,.06)}
-  [data-theme="ios"] .sp-avatar{box-shadow:0 5px 16px rgba(0,122,255,.3)}
-  [data-theme="ios"] .sp-close{background:rgba(120,120,128,.12); color:#1c1c1e; border-color:transparent}
-  [data-theme="ios"] .msg.bot{background:#e5e5ea; border-color:transparent; color:#1c1c1e}
-  [data-theme="ios"] .msg .mtitle{color:var(--text)}
-  [data-theme="ios"] .msg .mmeta{color:#6e6e73}
-  [data-theme="ios"] .sp-action{color:#007aff; background:rgba(0,122,255,.1); border-color:rgba(0,122,255,.3)}
-  [data-theme="ios"] .quick-chip{background:rgba(120,120,128,.12); color:#007aff}
-  [data-theme="ios"] .quick-chip:hover{color:#0057b8}
-  [data-theme="ios"] .sp-form{background:rgba(255,255,255,.6)}
-  [data-theme="ios"] .sp-form input{border-radius:999px}
-  [data-theme="ios"] dialog{background:rgba(255,255,255,.92); -webkit-backdrop-filter:blur(24px); backdrop-filter:blur(24px); color:var(--text); border:1px solid rgba(255,255,255,.7); border-radius:28px; box-shadow:0 24px 64px rgba(0,0,0,.22)}
-  [data-theme="ios"] dialog::backdrop{background:rgba(0,0,0,.25)}
+  [data-theme="ios-dark"] body{background:radial-gradient(640px 300px at 85% -40px, rgba(10,132,255,.22), transparent 70%), radial-gradient(520px 280px at 8% 140px, rgba(139,92,246,.18), transparent 70%), radial-gradient(480px 260px at 95% 620px, rgba(48,209,88,.08), transparent 70%), linear-gradient(180deg,#000000 0%,#1c1c1e 520px); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',Tahoma,system-ui,sans-serif; padding-bottom:100px}
+  [data-theme="ios"] header,[data-theme="ios-dark"] header{background:var(--glass-bar); -webkit-backdrop-filter:blur(20px) saturate(180%); backdrop-filter:blur(20px) saturate(180%); border-bottom-color:var(--line)}
+  [data-theme="ios"] .hero:before,[data-theme="ios-dark"] .hero:before{background:radial-gradient(closest-side,var(--hero-wash),transparent)}
+  [data-theme="ios"] .herologo,[data-theme="ios-dark"] .herologo{border-color:var(--herologo-border); box-shadow:0 8px 32px var(--hero-glow)}
+  [data-theme="ios"] .support,[data-theme="ios-dark"] .support,[data-theme="ios"] .themebtn,[data-theme="ios-dark"] .themebtn,[data-theme="ios"] .backbtn,[data-theme="ios-dark"] .backbtn{background:var(--glass-strong); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); border-color:var(--line)}
+  [data-theme="ios"] .trust span,[data-theme="ios-dark"] .trust span{color:var(--accent-text); background:var(--accent-soft); border-color:var(--accent-border)}
+  [data-theme="ios"] .catcard,[data-theme="ios-dark"] .catcard,[data-theme="ios"] .card,[data-theme="ios-dark"] .card{background:var(--glass); -webkit-backdrop-filter:blur(16px) saturate(180%); backdrop-filter:blur(16px) saturate(180%); border:1px solid var(--glass-border); border-radius:24px; box-shadow:var(--glass-shadow), var(--glass-inset)}
+  [data-theme="ios"] .card:hover,[data-theme="ios-dark"] .card:hover{box-shadow:var(--hover-shadow), var(--glass-inset)}
+  [data-theme="ios"] .pimg,[data-theme="ios-dark"] .pimg{background:var(--img-bg)}
+  [data-theme="ios"] .buy,[data-theme="ios-dark"] .buy{border-radius:999px; box-shadow:var(--buy-shadow)}
+  [data-theme="ios"] .buy:disabled,[data-theme="ios-dark"] .buy:disabled{background:var(--dis-bg); color:var(--dis-text); box-shadow:none}
+  [data-theme="ios"] .chip,[data-theme="ios-dark"] .chip{border-color:var(--line)}
+  [data-theme="ios"] .chip.d,[data-theme="ios-dark"] .chip.d{background:var(--chip-d-bg); color:var(--chip-d-text); border-color:var(--line)}
+  [data-theme="ios"] .chip.o,[data-theme="ios-dark"] .chip.o{background:var(--bad-soft); color:var(--bad); border-color:var(--bad-border)}
+  [data-theme="ios"] .chip.g,[data-theme="ios-dark"] .chip.g{border-color:var(--ok-border)}
+  [data-theme="ios"] .offernote,[data-theme="ios-dark"] .offernote{background:var(--accent-soft); border-color:var(--accent-border); color:var(--text)}
+  [data-theme="ios"] .paycard,[data-theme="ios-dark"] .paycard{background:var(--glass-strong); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border-color:var(--accent-border); box-shadow:var(--pay-shadow)}
+  [data-theme="ios"] .cardnum,[data-theme="ios-dark"] .cardnum{background:var(--cardnum-bg); border-color:var(--line); color:var(--text)}
+  [data-theme="ios"] .copybtn,[data-theme="ios-dark"] .copybtn{background:var(--btn-gray); color:var(--gold); border-color:transparent}
+  [data-theme="ios"] .copybtn:hover,[data-theme="ios-dark"] .copybtn:hover{border-color:var(--accent-border)}
+  [data-theme="ios"] input,[data-theme="ios-dark"] input{background:var(--field); border-color:var(--line); color:var(--text); border-radius:12px}
+  [data-theme="ios"] .profcard .ptxt b,[data-theme="ios-dark"] .profcard .ptxt b{color:var(--text)}
+  [data-theme="ios"] .profbtn.ghost,[data-theme="ios-dark"] .profbtn.ghost{background:var(--btn-gray); color:var(--gold); border-color:transparent}
+  [data-theme="ios"] .addcart,[data-theme="ios-dark"] .addcart{background:var(--btn-gray); color:var(--gold); border-color:transparent; border-radius:12px}
+  [data-theme="ios"] .addcart:hover,[data-theme="ios-dark"] .addcart:hover{color:var(--accent-text); border-color:var(--accent-border)}
+  [data-theme="ios"] .qtybtn,[data-theme="ios-dark"] .qtybtn{background:var(--btn-gray); color:var(--gold); border-color:transparent}
+  [data-theme="ios"] .dbtn,[data-theme="ios-dark"] .dbtn{background:var(--btn-gray); color:var(--gold); border-color:transparent; border-radius:12px}
+  [data-theme="ios"] .dbtn.danger,[data-theme="ios-dark"] .dbtn.danger{color:var(--bad); border-color:var(--bad-border)}
+  [data-theme="ios"] .bnav,[data-theme="ios-dark"] .bnav{left:12px; right:12px; bottom:calc(12px + env(safe-area-inset-bottom)); border-radius:28px; background:var(--glass-bar); -webkit-backdrop-filter:blur(24px) saturate(180%); backdrop-filter:blur(24px) saturate(180%); border:1px solid var(--glass-border); border-top:1px solid var(--glass-border); box-shadow:var(--nav-shadow), var(--glass-inset); padding:8px 10px}
+  [data-theme="ios"] .badge,[data-theme="ios-dark"] .badge{background:var(--bad)}
+  [data-theme="ios"] footer a,[data-theme="ios-dark"] footer a{color:var(--gold)}
+  [data-theme="ios"] .hint,[data-theme="ios-dark"] .hint{color:var(--ok)}
+  [data-theme="ios"] .sp-sub,[data-theme="ios-dark"] .sp-sub{color:var(--ok)}
+  [data-theme="ios"] .err,[data-theme="ios-dark"] .err{color:var(--bad)}
+  [data-theme="ios"] .cdel,[data-theme="ios-dark"] .cdel{color:var(--bad)}
+  [data-theme="ios"] .support-fab,[data-theme="ios-dark"] .support-fab{background:var(--glass-strong); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border:1px solid var(--glass-border); box-shadow:var(--fab-shadow)}
+  [data-theme="ios"] .support-fab svg path,[data-theme="ios-dark"] .support-fab svg path{fill:var(--gold)}
+  [data-theme="ios"] .support-fab svg circle,[data-theme="ios-dark"] .support-fab svg circle{fill:#ffffff}
+  [data-theme="ios"] .support-panel,[data-theme="ios-dark"] .support-panel{background:var(--glass-strong); -webkit-backdrop-filter:blur(24px) saturate(180%); backdrop-filter:blur(24px) saturate(180%); border-color:var(--glass-border); border-radius:28px; box-shadow:var(--panel-shadow)}
+  [data-theme="ios"] .sp-head,[data-theme="ios-dark"] .sp-head{background:var(--accent-soft)}
+  [data-theme="ios"] .sp-avatar,[data-theme="ios-dark"] .sp-avatar{box-shadow:0 5px 16px var(--avatar-glow)}
+  [data-theme="ios"] .sp-close,[data-theme="ios-dark"] .sp-close{background:var(--btn-gray); color:var(--text); border-color:transparent}
+  [data-theme="ios"] .msg.bot,[data-theme="ios-dark"] .msg.bot{background:var(--bot-bubble); border-color:transparent; color:var(--text)}
+  [data-theme="ios"] .msg .mtitle,[data-theme="ios-dark"] .msg .mtitle{color:var(--text)}
+  [data-theme="ios"] .msg .mmeta,[data-theme="ios-dark"] .msg .mmeta{color:var(--muted)}
+  [data-theme="ios"] .sp-action,[data-theme="ios-dark"] .sp-action{color:var(--gold); background:var(--accent-soft); border-color:var(--accent-border)}
+  [data-theme="ios"] .quick-chip,[data-theme="ios-dark"] .quick-chip{background:var(--btn-gray); color:var(--gold)}
+  [data-theme="ios"] .quick-chip:hover,[data-theme="ios-dark"] .quick-chip:hover{color:var(--accent-text)}
+  [data-theme="ios"] .sp-form,[data-theme="ios-dark"] .sp-form{background:var(--form-bg)}
+  [data-theme="ios"] .sp-form input,[data-theme="ios-dark"] .sp-form input{border-radius:999px}
+  [data-theme="ios"] dialog,[data-theme="ios-dark"] dialog{background:var(--dlg-bg); -webkit-backdrop-filter:blur(24px); backdrop-filter:blur(24px); color:var(--text); border:1px solid var(--glass-border); border-radius:28px; box-shadow:var(--dlg-shadow)}
+  [data-theme="ios"] dialog::backdrop,[data-theme="ios-dark"] dialog::backdrop{background:var(--backdrop)}
   .copyright{border-top:1px solid var(--line); margin-top:16px; padding-top:14px; font-size:12.5px; color:var(--muted)}
 </style>
 <script>
   try {
     var _t = localStorage.getItem('cpreborn_theme_v1') || 'auto';
+    if (_t === 'ios') _t = 'auto';
     var _sysLight = !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
-    if (_t === 'ios') { document.documentElement.setAttribute('data-theme', 'ios'); }
-    else if (_t === 'light' || (_t === 'auto' && _sysLight)) { document.documentElement.setAttribute('data-theme', 'light'); }
+    if (_t === 'light') { document.documentElement.setAttribute('data-theme', 'ios'); }
+    else if (_t === 'dark') { document.documentElement.setAttribute('data-theme', 'ios-dark'); }
+    else if (_sysLight) { document.documentElement.setAttribute('data-theme', 'ios'); }
+    else { document.documentElement.setAttribute('data-theme', 'ios-dark'); }
   } catch (e) {}
 </script>
 </head>
@@ -1280,18 +1262,17 @@
   var KEY = 'cpreborn_theme_v1';
   var btn = document.getElementById('themeBtn');
   if (!btn) return;
-  function stored() { try { return localStorage.getItem(KEY) || 'auto'; } catch (e) { return 'auto'; } }
+  function stored() { try { var v = localStorage.getItem(KEY) || 'auto'; return v === 'ios' ? 'auto' : v; } catch (e) { return 'auto'; } }
   function sysLight() { return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches); }
   function apply(mode) {
-    if (mode === 'ios') { document.documentElement.setAttribute('data-theme', 'ios'); }
-    else if (mode === 'light') { document.documentElement.setAttribute('data-theme', 'light'); }
-    else if (mode === 'dark') { document.documentElement.removeAttribute('data-theme'); }
-    else { if (sysLight()) { document.documentElement.setAttribute('data-theme', 'light'); } else { document.documentElement.removeAttribute('data-theme'); } }
-    var icon = mode === 'light' ? '☀️' : (mode === 'dark' ? '🌙' : (mode === 'ios' ? '📱' : '🌓'));
-    var label = mode === 'light' ? 'تم: روشن' : (mode === 'dark' ? 'تم: تاریک' : (mode === 'ios' ? 'تم: آیفون' : 'تم: خودکار'));
+    if (mode === 'light') { document.documentElement.setAttribute('data-theme', 'ios'); }
+    else if (mode === 'dark') { document.documentElement.setAttribute('data-theme', 'ios-dark'); }
+    else { if (sysLight()) { document.documentElement.setAttribute('data-theme', 'ios'); } else { document.documentElement.setAttribute('data-theme', 'ios-dark'); } }
+    var icon = mode === 'light' ? '☀️' : (mode === 'dark' ? '🌙' : '📱');
+    var label = mode === 'light' ? 'تم آیفون: روشن' : (mode === 'dark' ? 'تم آیفون: تاریک' : 'تم آیفون: خودکار');
     btn.textContent = icon; btn.setAttribute('aria-label', label); btn.title = label;
   }
-  var order = ['auto', 'light', 'dark', 'ios'];
+  var order = ['auto', 'light', 'dark'];
   btn.addEventListener('click', function () {
     var cur = stored();
     var next = order[(order.indexOf(cur) + 1) % order.length];
