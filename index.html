@@ -43,6 +43,9 @@
   .catcount{font-size:12.5px; color:var(--muted); margin-top:3px}
   .backbtn{background:var(--panel); color:var(--text); border:1px solid var(--line); font-family:inherit; font-size:14px; font-weight:700; padding:10px 16px; border-radius:999px; cursor:pointer; margin:18px 0 2px}
   #catView .backbtn{position:sticky; top:74px; z-index:20; box-shadow:0 8px 24px rgba(0,0,0,.18)}
+  .totop{position:fixed; bottom:calc(96px + env(safe-area-inset-bottom)); inset-inline-start:16px; z-index:40; width:60px; height:60px; border-radius:50%; background:var(--glass-strong, var(--panel)); border:1px solid var(--line); color:#007AFF; font-size:26px; font-weight:800; line-height:1; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .totop.show{display:flex}
+  [data-theme="ios-dark"] .totop{color:#0A84FF}
   h2.sec{font-size:20px; font-weight:800; margin:34px 0 4px; padding-top:20px; border-top:1px solid var(--line); display:flex; align-items:center; gap:9px}
   h2.sec:before{content:''; width:5px; height:22px; border-radius:3px; background:linear-gradient(180deg,var(--gold),var(--gold2))}
   #catHome h2.sec:first-child, #catView h2.sec{margin-top:12px; border-top:0; padding-top:0}
@@ -81,9 +84,13 @@
   .copybtn:hover{border-color:var(--gold2)}
   footer{border-top:1px solid var(--line); padding:22px 0 34px; text-align:center; color:var(--muted); font-size:13px; line-height:2.1}
   footer a{color:#c9d6ea}
-  dialog{background:var(--panel); color:var(--text); border:1px solid var(--line); border-radius:18px; padding:0; width:min(94vw,460px)}
+  dialog{background:var(--panel); color:var(--text); border:1px solid var(--line); border-radius:18px; padding:0; width:min(94vw,460px); max-height:calc(100vh - 2em); max-height:calc(100dvh - 2em); overflow-y:auto}
   dialog::backdrop{background:rgba(2,6,14,.75)}
   .dlg{padding:22px}
+  .dlg input{font-size:16px}
+  .dlg-head{display:flex; align-items:center; justify-content:space-between; gap:12px; position:sticky; top:0; z-index:2; background:var(--panel); padding:10px 14px; margin:0 0 6px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,.15)}
+  .dlg-x{background:transparent; border:1px solid var(--line); color:var(--text); width:36px; height:36px; min-width:36px; border-radius:50%; font-size:18px; line-height:1; cursor:pointer}
+  [data-theme="ios"] .dlg-head,[data-theme="ios-dark"] .dlg-head{background:var(--dlg-bg)}
   .dlg h3{font-size:17px; font-weight:800; margin-bottom:4px}
   .dlg .sel{color:var(--gold); font-size:14px; margin-bottom:8px; line-height:1.9}
   label{display:block; font-size:13px; color:var(--muted); margin:12px 0 6px}
@@ -373,6 +380,7 @@
   <button type="button" class="bnavbtn" id="navProfile"><span class="bic">👤</span><span>پروفایل</span></button>
 </nav>
 
+<button id="toTop" class="totop" type="button" aria-label="بازگشت به بالای صفحه">↑</button>
 
 <button id="supportFab" class="support-fab" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="supportPanel" aria-label="پشتیبانی هوشمند" title="پشتیبانی هوشمند">
   <span class="sf-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="#1a1206" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2Z"/><circle cx="7" cy="9.5" r="1.6" fill="#f5c451"/><circle cx="12" cy="9.5" r="1.6" fill="#f5c451"/><circle cx="17" cy="9.5" r="1.6" fill="#f5c451"/></svg></span>
@@ -404,7 +412,7 @@
 
 <dialog id="dlg">
   <div class="dlg">
-    <h3>ثبت سفارش</h3>
+    <div class="dlg-head"><h3>ثبت سفارش</h3><button class="dlg-x" id="dlgX" type="button" aria-label="بستن">✕</button></div>
     <div class="sel" id="sel"></div>
     <form id="form" method="dialog">
       <label for="name">نام و نام خانوادگی *</label>
@@ -428,7 +436,7 @@
 
 <dialog id="pdlg">
   <div class="dlg">
-    <h3>اطلاعات من</h3>
+    <div class="dlg-head"><h3>اطلاعات من</h3><button class="dlg-x" id="pdlgX" type="button" aria-label="بستن">✕</button></div>
     <div class="sel">یه بار ثبتش کن؛ موقع سفارش خودکار پر می‌شه و فقط اطلاعات اکانت بازی رو وارد می‌کنی.</div>
     <form id="pform" method="dialog">
       <label for="pname">نام و نام خانوادگی *</label>
@@ -808,6 +816,12 @@
     dlg.showModal();
   }
   document.getElementById('cancel').addEventListener('click', function () { dlg.close(); });
+  document.getElementById('dlgX').addEventListener('click', function () { dlg.close(); });
+  document.getElementById('pdlgX').addEventListener('click', function () { pdlg.close(); });
+  function updateToTop() { document.getElementById('toTop').classList.toggle('show', window.scrollY > 500); }
+  window.addEventListener('scroll', updateToTop, { passive: true });
+  updateToTop();
+  document.getElementById('toTop').addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
   var RUBIKA_URL = 'https://rubika.ir/eamiiri';
 
