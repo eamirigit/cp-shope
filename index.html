@@ -629,7 +629,7 @@
     document.getElementById('catViewNote').style.display = id === 'offers' ? '' : 'none';
     var g = document.getElementById('catViewGrid'); g.innerHTML = '';
     c.arr.forEach(function (p) { g.appendChild(card(p, !!c.isCp)); });
-    if (!c.arr.some(function (p) { return p.stock; })) { var eb = document.createElement('div'); eb.className = 'emptybox'; eb.innerHTML = 'به زودی<br><span style="font-size:12.5px">محصول‌های این دسته به‌زودی اضافه می‌شن.</span>'; g.appendChild(eb); }
+    if (!c.arr.length) { var eb = document.createElement('div'); eb.className = 'emptybox'; eb.innerHTML = 'به زودی<br><span style="font-size:12.5px">محصول‌های این دسته به‌زودی اضافه می‌شن.</span>'; g.appendChild(eb); }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function showCategories() {
